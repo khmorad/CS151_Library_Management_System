@@ -8,4 +8,4 @@
 
 ## Project Proposal Status:
 
-not complete
+waiting for approval...
