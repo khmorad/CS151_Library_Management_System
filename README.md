@@ -1,5 +1,4 @@
-# CS151-Taco GitHub Repository
-🌮
+# CS151_Library_Management_System
 
 ## Team Members:
 - Yar Moradpour
