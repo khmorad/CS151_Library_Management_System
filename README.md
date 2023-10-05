@@ -3,7 +3,7 @@
 ## Team Members:
 
 - [Yar Moradpour](https://github.com/khmorad)
-- Sean Hsieh
+- [Sean Hsieh](https://github.com/ShangchenHsieh)
 - [Daniel H](https://github.com/dh0169)
 
 ## Project Proposal Status:
