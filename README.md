@@ -1,4 +1,5 @@
 # CS151_Library_Management_System
+
 <br>
 
 ## Team Members:
@@ -10,6 +11,3 @@
 ## Project Proposal Status:
 
 not complete
-
-SOME RANDOME STUFF FOR TESTING
-
