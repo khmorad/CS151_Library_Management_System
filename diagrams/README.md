@@ -1,6 +1,8 @@
-# CS151_Library_Management_System_Diagrams
+# CS151 Library Management System
 
-<br>
-## Diagrams:
-<a href="state-diagram.pdf">State Diagram</a>
-<a href="sequential-diagram.pdf">State Diagram</a>
+This repository contains diagrams for the Library Management System developed in CS151.
+
+## Diagrams
+
+- [State Diagram](state-diagram.pdf)
+- [Sequential Diagram](sequential-diagram.pdf)
