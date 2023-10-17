@@ -1,6 +1,6 @@
 # CS151 Library Management System
 
-This repository contains diagrams for the Library Management System developed in CS151.
+This repository contains diagrams for the Library Management System.
 
 ## Diagrams
 
