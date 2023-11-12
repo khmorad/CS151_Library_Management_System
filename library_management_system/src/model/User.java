@@ -1,6 +1,7 @@
-package CS151_Library_Management_System.library_management_system;
+package model;
 
 import java.io.File;
+
 public class User {
     public String userID;
     public String firstName;
