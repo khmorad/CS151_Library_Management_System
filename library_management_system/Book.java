@@ -2,13 +2,13 @@ package CS151_Library_Management_System.library_management_system;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
+
 
 public class Book extends Media {
     public String title;
@@ -39,8 +39,14 @@ public class Book extends Media {
     }
 
     private static void parseJson(String jsonContent, List<Book> books) {
-        // Remove whitespace and newline characters
-        jsonContent = jsonContent.replaceAll("\\s", "");
+        // Remove leading and trailing brackets if present
+        jsonContent = jsonContent.trim();
+        if (jsonContent.startsWith("[")) {
+            jsonContent = jsonContent.substring(1);
+        }
+        if (jsonContent.endsWith("]")) {
+            jsonContent = jsonContent.substring(0, jsonContent.length() - 1);
+        }
 
         // Split the JSON content into individual book objects
         String[] bookArray = jsonContent.split("\\},\\{");
@@ -55,8 +61,8 @@ public class Book extends Media {
             // Parse key-value pairs and set book attributes
             for (String pair : keyValuePairs) {
                 String[] entry = pair.split(":");
-                String key = entry[0].replaceAll("\"", "");
-                String value = entry[1].replaceAll("\"", "");
+                String key = entry[0].replaceAll("\"", "").trim();
+                String value = entry[1].replaceAll("\"", "").trim();
 
                 switch (key) {
                     case "title":
@@ -85,6 +91,34 @@ public class Book extends Media {
         }
     }
 
+    public static void writeToJsonFile(List<Book> books, String filePath) throws IOException {
+        // Convert the list of books to JSON format
+        String jsonContent = convertListToJson(books);
+
+        // Write the JSON content back to the file
+        Files.write(Path.of(filePath), jsonContent.getBytes());
+    }
+
+    private static String convertListToJson(List<Book> books) {
+        // Implement your own logic to convert the list of books to JSON format
+        // This is a simplified example, and you might need a JSON library for a
+        // real-world scenario
+        StringBuilder json = new StringBuilder("[");
+        for (Book book : books) {
+            json.append("{");
+            json.append("\"title\":\"").append(book.title).append("\",");
+            json.append("\"author\":\"").append(book.author).append("\",");
+            json.append("\"ISBN\":\"").append(book.ISBN).append("\",");
+            json.append("\"reserved\":").append(book.isReserved).append(",");
+            json.append("\"checked_out\":").append(book.isCheckedOut);
+            json.append("},");
+        }
+        if (books.size() > 0) {
+            json.deleteCharAt(json.length() - 1); // Remove the trailing comma
+        }
+        json.append("]");
+        return json.toString();
+    }
     @Override
     public void displayInfo() {
         System.out.println("Book Information:");
