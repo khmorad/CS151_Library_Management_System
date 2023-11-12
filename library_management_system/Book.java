@@ -101,9 +101,10 @@ public class Book extends Media {
     }
 
     private static String convertListToJson(List<Book> books) {
-        // Implement your own logic to convert the list of books to JSON format
-        // This is a simplified example, and you might need a JSON library for a
-        // real-world scenario
+        // *******neeeds work ***********
+        // trying to conver the Book data back to json format so the
+        // json file is updated
+
         StringBuilder json = new StringBuilder("[");
         for (Book book : books) {
             json.append("{");
