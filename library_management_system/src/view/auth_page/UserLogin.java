@@ -172,7 +172,7 @@ public class UserLogin extends JFrame implements ActionListener {
 
         loginButton.addActionListener(this);
         backButton.addActionListener(this);
-        loginButton.setEnabled(false);
+        loginButton.setEnabled(true);
         password.getDocument().addDocumentListener(new MyDocumentListener());
         username.getDocument().addDocumentListener(new MyDocumentListener());
 
