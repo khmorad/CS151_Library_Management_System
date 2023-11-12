@@ -18,7 +18,7 @@ public class AdminLogin extends JFrame implements ActionListener {
     public AdminLogin() {
         setTitle("SJSU Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(866, 650);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 

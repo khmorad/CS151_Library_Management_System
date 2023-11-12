@@ -25,7 +25,7 @@ public class UserRegister extends JFrame implements ActionListener {
     public UserRegister() {
         setTitle("User Registration");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(866, 650);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 

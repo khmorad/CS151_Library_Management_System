@@ -20,7 +20,7 @@ public class UserLogin extends JFrame implements ActionListener {
     public UserLogin() {
         setTitle("SJSU Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(866, 650);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
@@ -101,7 +101,7 @@ public class UserLogin extends JFrame implements ActionListener {
     public UserLogin(String un, String pw) {
         setTitle("SJSU Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(866, 650);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
