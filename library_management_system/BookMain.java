@@ -8,7 +8,7 @@ public class BookMain {
         try {
             String filePath = "CS151_Library_Management_System\\library_management_system\\database\\books.json";
             List<Book> books = Book.readFromJsonFile(filePath);
-            // only displaying the first book content
+            // only displaying the first book
             if (!books.isEmpty()) {
                 books.get(0).displayInfo();
             }

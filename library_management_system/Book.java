@@ -63,8 +63,8 @@ public class Book extends Media {
                 String[] entry = pair.split(":");
                 String key = entry[0].replaceAll("\"", "").trim();
                 String value = entry[1].replaceAll("\"", "").trim();
-                // using switch so when it detects the attributs in json file it sets
-                // the value
+                // using switch so when it detects the attributs in json file it to set title,
+                // author, ISBN, reserved, checked out
                 switch (key) {
                     case "title":
                         book.title = value;
@@ -101,28 +101,25 @@ public class Book extends Media {
     }
 
     private static String convertListToJson(List<Book> books) {
+        // Implement your own logic to convert the list of books to JSON format
+        // This is a simplified example, and you might need a JSON library for a
+        // real-world scenario
         StringBuilder json = new StringBuilder("[");
         for (Book book : books) {
             json.append("{");
-            json.append("\"title\":\"").append(escapeJsonString(book.title)).append("\",");
-            json.append("\"author\":\"").append(escapeJsonString(book.author)).append("\",");
-            json.append("\"ISBN\":\"").append(escapeJsonString(book.ISBN)).append("\",");
+            json.append("\"title\":\"").append(book.title).append("\",");
+            json.append("\"author\":\"").append(book.author).append("\",");
+            json.append("\"ISBN\":\"").append(book.ISBN).append("\",");
             json.append("\"reserved\":").append(book.isReserved).append(",");
             json.append("\"checked_out\":").append(book.isCheckedOut);
             json.append("},");
         }
-        if (!books.isEmpty()) {
+        if (books.size() > 0) {
             json.deleteCharAt(json.length() - 1); // Remove the trailing comma
         }
         json.append("]");
         return json.toString();
     }
-
-    private static String escapeJsonString(String str) {
-        // Replace special characters in the string to ensure proper JSON formatting
-        return str.replace("\"", "\\\"").replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t");
-    }
-
     @Override
     public void displayInfo() {
         System.out.println("Book Information:");
