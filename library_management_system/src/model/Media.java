@@ -1,4 +1,4 @@
-package CS151_Library_Management_System.library_management_system;
+package model;
 
 public abstract class Media {
     protected String itemID;

@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "library_management_system/src",
+        "library_management_system"
+    ]
+}

@@ -1,4 +1,4 @@
-package CS151_Library_Management_System.library_management_system;
+package model;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,8 +7,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-
 
 public class Book extends Media {
     public String title;
@@ -121,6 +119,7 @@ public class Book extends Media {
         json.append("]");
         return json.toString();
     }
+
     @Override
     public void displayInfo() {
         System.out.println("Book Information:");
