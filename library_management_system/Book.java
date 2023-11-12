@@ -63,7 +63,8 @@ public class Book extends Media {
                 String[] entry = pair.split(":");
                 String key = entry[0].replaceAll("\"", "").trim();
                 String value = entry[1].replaceAll("\"", "").trim();
-
+                // using switch so when it detects the attributs in json file it sets
+                // the value
                 switch (key) {
                     case "title":
                         book.title = value;
