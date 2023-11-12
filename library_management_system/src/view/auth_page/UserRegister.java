@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import view.Index;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 import java.awt.*;
 
 public class UserRegister extends JFrame implements ActionListener {
@@ -148,6 +151,14 @@ public class UserRegister extends JFrame implements ActionListener {
         constraints.gridy = 10;
         registerPanel.add(backPanel, constraints);
 
+        registerButton.setEnabled(false);
+
+        password.getDocument().addDocumentListener(new MyDocumentListener());
+        firstName.getDocument().addDocumentListener(new MyDocumentListener());
+        lastName.getDocument().addDocumentListener(new MyDocumentListener());
+        userID.getDocument().addDocumentListener(new MyDocumentListener());
+        email.getDocument().addDocumentListener(new MyDocumentListener());
+
         // Add action listeners
         registerButton.addActionListener(this);
         loginButton.addActionListener(this);
@@ -158,10 +169,38 @@ public class UserRegister extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    private class MyDocumentListener implements DocumentListener {
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            updateButtonState();
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            updateButtonState();
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+            updateButtonState();
+        }
+
+        private void updateButtonState() {
+            // Enable the button if all text fields are filled, otherwise disable it
+            if (!userID.getText().isEmpty() && !firstName.getText().isEmpty() && !lastName.getText().isEmpty() &&
+                    !email.getText().isEmpty() && !password.getText().isEmpty()) {
+                registerButton.setEnabled(true);
+            } else {
+                registerButton.setEnabled(false);
+            }
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerButton) {
-            UserLogin userLogin = new UserLogin("TEST"); // TO BE MODIFIED
+            dispose();
+            UserLogin userLogin = new UserLogin(userID.getText(), new String(password.getPassword()));
         } else if (e.getSource() == loginButton) {
             dispose();
             UserLogin userLogin = new UserLogin();
