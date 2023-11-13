@@ -9,12 +9,6 @@ import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
 public class UserMediaAction extends JFrame implements ActionListener {
     JButton checkoutButton = new JButton("Checkout");
     JButton returnButton = new JButton("Return");

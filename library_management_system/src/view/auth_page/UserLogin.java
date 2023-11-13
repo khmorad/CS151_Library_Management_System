@@ -11,7 +11,6 @@ import javax.swing.event.DocumentListener;
 
 import model.Book;
 import view.media_list.UserMediaList;
-import view.Index;
 
 public class UserLogin extends JFrame implements ActionListener {
 

@@ -6,21 +6,8 @@ import java.io.IOException;
 
 import model.Book;
 import view.media_list.AdminMediaList;
-import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
-
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class AdminMediaAction extends JFrame implements ActionListener {
     JTextField titleField = new JTextField(20);
