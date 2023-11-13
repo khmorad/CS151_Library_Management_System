@@ -3,10 +3,13 @@ package view.auth_page;
 import javax.swing.*;
 
 import view.Index;
+import view.media_list.AdminMediaList;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import model.Book;
 
 public class AdminLogin extends JFrame implements ActionListener {
 
@@ -96,8 +99,13 @@ public class AdminLogin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
-            String inputUsername = username.getText();
-            String inputPassword = new String(password.getPassword());
+            dispose();
+            try {
+                AdminMediaList medias = new AdminMediaList(
+                        Book.readFromJsonFile("library_management_system/database/books.json"));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
 
         } else if (e.getSource() == backButton) {
             dispose();

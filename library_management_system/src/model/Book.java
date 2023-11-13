@@ -26,7 +26,7 @@ public class Book extends Media {
         try (Scanner scanner = new Scanner(new File(filePath))) {
             StringBuilder jsonContent = new StringBuilder();
             while (scanner.hasNextLine()) {
-                jsonContent.append(scanner.nextLine());
+                jsonContent.append(scanner.nextLine()).append(System.lineSeparator());
             }
 
             // Parse the JSON manually and create a list of Book objects
@@ -36,6 +36,42 @@ public class Book extends Media {
         return books;
     }
 
+    public static Book findByISBN(List<Book> books, String targetISBN) {
+        for (Book book : books) {
+            if (book.ISBN.equals(targetISBN)) {
+                return book;
+            }
+        }
+        // return null when book not found
+        return null;
+    }
+
+    public static void deleteBookByISBN(List<Book> books, String targetISBN) {
+        Book bookToRemove = findByISBN(books, targetISBN);
+        if (bookToRemove != null) {
+            books.remove(bookToRemove);
+            System.out.println("Book with ISBN " + targetISBN + " has been removed.");
+        } else {
+            System.out.println("Book with ISBN " + targetISBN + " not found.");
+        }
+    }
+
+    // using th findByISBN to update book data
+    public static void updateBookByISBN(List<Book> books, String targetISBN, Book updatedBook) {
+        Book bookToUpdate = findByISBN(books, targetISBN);
+        if (bookToUpdate != null) {
+            bookToUpdate.title = updatedBook.title;
+            bookToUpdate.author = updatedBook.author;
+            bookToUpdate.ISBN = updatedBook.ISBN;
+            bookToUpdate.setReserved(updatedBook.isReserved);
+            bookToUpdate.setCheckedOut(updatedBook.isCheckedOut);
+            System.out.println("Book with ISBN " + targetISBN + " has been updated.");
+        } else {
+            System.out.println("Book with ISBN " + targetISBN + " not found.");
+        }
+    }
+
+    // AAAA regex is driving me nuts
     private static void parseJson(String jsonContent, List<Book> books) {
         // Remove leading and trailing brackets if present
         jsonContent = jsonContent.trim();
@@ -46,22 +82,19 @@ public class Book extends Media {
             jsonContent = jsonContent.substring(0, jsonContent.length() - 1);
         }
 
-        // Split the JSON content into individual book objects
-        String[] bookArray = jsonContent.split("\\},\\{");
+        String[] bookArray = jsonContent.split("\\},\\s*\\{");
 
         for (String bookStr : bookArray) {
-            // Remove curly braces and split key-value pairs
-            String[] keyValuePairs = bookStr.replaceAll("[{}]", "").split(",");
+            String[] keyValuePairs = bookStr.split(",");
 
-            // Create a new Book object
             Book book = new Book("", "", "", "");
 
-            // Parse key-value pairs and set book attributes
             for (String pair : keyValuePairs) {
                 String[] entry = pair.split(":");
                 String key = entry[0].replaceAll("\"", "").trim();
                 String value = entry[1].replaceAll("\"", "").trim();
-                // using switch so when it detects the attributs in json file it to set title,
+                // using switch so when it detects the attributes in the JSON file it sets
+                // title,
                 // author, ISBN, reserved, checked out
                 switch (key) {
                     case "title":
@@ -80,12 +113,12 @@ public class Book extends Media {
                         book.setCheckedOut(Boolean.parseBoolean(value));
                         break;
                     default:
-                        // Handle other keys if needed
+                        // use default to handle other keys if needed
                         break;
                 }
             }
 
-            // Add the book to the list
+            // use add to add the book to the list
             books.add(book);
         }
     }
@@ -99,24 +132,23 @@ public class Book extends Media {
     }
 
     private static String convertListToJson(List<Book> books) {
-        // *******neeeds work ***********
-        // trying to conver the Book data back to json format so the
-        // json file is updated
+        if (books.isEmpty()) {
+            return "[]";
+        }
 
-        StringBuilder json = new StringBuilder("[");
+        StringBuilder json = new StringBuilder("[\n");
         for (Book book : books) {
-            json.append("{");
-            json.append("\"title\":\"").append(book.title).append("\",");
-            json.append("\"author\":\"").append(book.author).append("\",");
-            json.append("\"ISBN\":\"").append(book.ISBN).append("\",");
-            json.append("\"reserved\":").append(book.isReserved).append(",");
-            json.append("\"checked_out\":").append(book.isCheckedOut);
-            json.append("},");
+            json.append("  {\n");
+            json.append("    \"title\":\"").append(book.title).append("\",\n");
+            json.append("    \"author\":\"").append(book.author).append("\",\n");
+            json.append("    \"ISBN\":\"").append(book.ISBN).append("\",\n");
+            json.append("    \"reserved\":").append(book.isReserved).append(",\n");
+            json.append("    \"checked_out\":").append(book.isCheckedOut).append("\n");
+            json.append("  },\n");
         }
-        if (books.size() > 0) {
-            json.deleteCharAt(json.length() - 1); // Remove the trailing comma
-        }
-        json.append("]");
+        json.delete(json.length() - 2, json.length()); // Remove the trailing comma and newline
+        json.append("\n]");
+
         return json.toString();
     }
 
