@@ -3,11 +3,14 @@ package view.auth_page;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import model.Book;
+import view.media_list.UserMediaList;
 import view.Index;
 
 public class UserLogin extends JFrame implements ActionListener {
@@ -15,7 +18,7 @@ public class UserLogin extends JFrame implements ActionListener {
     private JTextField username = new JTextField(15); // Adjusted to accommodate a 15-character username
     private JPasswordField password = new JPasswordField(15); // Adjusted to accommodate a 15-character password
     private JButton loginButton = new JButton("Login");
-    private JButton backButton = new JButton("Back");
+    private JButton backButton = new JButton("Back to Register");
 
     public UserLogin() {
         setTitle("SJSU Library");
@@ -210,8 +213,13 @@ public class UserLogin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
-            String inputUsername = username.getText();
-            String inputPassword = new String(password.getPassword());
+            dispose();
+            try {
+                UserMediaList medias = new UserMediaList(
+                        Book.readFromJsonFile("library_management_system/database/books.json"));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
 
         } else if (e.getSource() == backButton) {
             dispose();
