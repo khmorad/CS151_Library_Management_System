@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Book extends Media {
     public String title;
     public String author;
@@ -123,6 +124,7 @@ public class Book extends Media {
         }
     }
 
+
     public static void writeToJsonFile(List<Book> books, String filePath) throws IOException {
         // Convert the list of books to JSON format
         String jsonContent = convertListToJson(books);
@@ -151,6 +153,7 @@ public class Book extends Media {
 
         return json.toString();
     }
+
 
     @Override
     public void displayInfo() {
