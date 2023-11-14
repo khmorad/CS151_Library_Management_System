@@ -1,7 +1,7 @@
 package view.media_list;
 
 import model.Book;
-import view.auth_page.UserLogin;
+import view.auth_page.AdminLogin;
 import view.media_action.AdminMediaAction;
 import javax.swing.*;
 import java.awt.*;
@@ -68,7 +68,7 @@ public class AdminMediaList extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == backButton) {
             dispose();
-            UserLogin login = new UserLogin();
+            AdminLogin login = new AdminLogin();
         } else {
             for (Book book : books) {
                 if (e.getActionCommand().equals(book.title)) {

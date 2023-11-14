@@ -13,6 +13,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
     JButton checkoutButton = new JButton("Checkout");
     JButton returnButton = new JButton("Return");
     JButton backButton = new JButton("Back");
+    JLabel availabilityLabel;
 
     public UserMediaAction(Book book) {
 
@@ -22,10 +23,17 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
+        if (book.isCheckedOut()) {
+            availabilityLabel = new JLabel("Availability: Not Available");
+            availabilityLabel.setForeground(Color.RED);
+        } else {
+            availabilityLabel = new JLabel("Availability: Available");
+
+        }
+
         JLabel bookTitleLabel = new JLabel("Book Title: " + book.title);
         JLabel authorLabel = new JLabel("Author: " + book.author);
         JLabel isbnLabel = new JLabel("ISBN: " + book.ISBN);
-        JLabel availabilityLabel = new JLabel("Availability: Available");
 
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));

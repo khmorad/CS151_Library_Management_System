@@ -34,6 +34,11 @@ public class AdminMediaAction extends JFrame implements ActionListener {
         JLabel authorLabel = new JLabel("Author:");
         JLabel isbnLabel = new JLabel("ISBN:");
         JLabel availabilityLabel = new JLabel("Availability:");
+        if (book.isCheckedOut()) {
+            availabilityField.setText("Not Available");
+        } else {
+            availabilityField.setText("Available");
+        }
 
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -66,7 +71,6 @@ public class AdminMediaAction extends JFrame implements ActionListener {
         titleField.setText(book.title);
         authorField.setText(book.author);
         isbnField.setText(book.ISBN);
-        availabilityField.setText("To be updated");
 
         JPanel bookPanel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
