@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import controller.LMSController;
 import model.Book;
+import model.GeneralUser;
 import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
@@ -20,6 +22,8 @@ public class UserMediaAction extends JFrame implements ActionListener {
     JButton returnButton = new JButton("Return");
     JButton backButton = new JButton("Back");
 
+    private String currentItemID;
+
     public UserMediaAction(Book book) {
 
         setTitle("Book Information");
@@ -28,6 +32,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
+        this.currentItemID = book.getItemID();
         JLabel bookTitleLabel = new JLabel("Book Title: " + book.title);
         JLabel authorLabel = new JLabel("Author: " + book.author);
         JLabel isbnLabel = new JLabel("ISBN: " + book.ISBN);
@@ -98,6 +103,11 @@ public class UserMediaAction extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == checkoutButton) {
+            ///If user is in this view, they are not librarian.
+            GeneralUser genUser = (GeneralUser) LMSController.lms.getCurrentUser();
+            if(genUser.checkOut(this.currentItemID)){
+
+            }
             System.out.println("CHECKOUT");
         } else if (e.getSource() == returnButton) {
             System.out.println("RETURN");

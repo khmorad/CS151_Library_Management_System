@@ -1,7 +1,8 @@
 package view.media_list;
 
 import model.Book;
-import view.auth_page.UserLogin;
+import model.Media;
+import view.auth_page.Login;
 import view.media_action.AdminMediaAction;
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +11,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class AdminMediaList extends JFrame implements ActionListener {
-    private List<Book> books;
+    private List<Media> books;
     private JButton backButton = new JButton("Logout");
 
-    public AdminMediaList(List<Book> books) {
+    public AdminMediaList(List<Media> books) {
         this.books = books;
 
         setTitle("Book Library");
@@ -26,22 +27,25 @@ public class AdminMediaList extends JFrame implements ActionListener {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setAlignmentY(Component.TOP_ALIGNMENT);
 
-        for (Book book : books) {
-            JButton bookButton = new JButton(book.title);
-            bookButton.addActionListener(this);
+        for (Media currItem : books) {
+            if(currItem instanceof Book){
+                Book book = (Book) currItem;
+                JButton bookButton = new JButton(book.title);
+                bookButton.addActionListener(this);
 
-            bookButton.setPreferredSize(new Dimension(300, 50));
-            bookButton.setBackground(Color.lightGray);
-            bookButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                bookButton.setPreferredSize(new Dimension(300, 50));
+                bookButton.setBackground(Color.lightGray);
+                bookButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-            bookButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-            bookButton.setFocusPainted(false);
-            bookButton.setContentAreaFilled(false);
-            bookButton.setOpaque(true);
-            bookButton.setBorderPainted(false);
-            buttonPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+                bookButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+                bookButton.setFocusPainted(false);
+                bookButton.setContentAreaFilled(false);
+                bookButton.setOpaque(true);
+                bookButton.setBorderPainted(false);
+                buttonPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 
-            buttonPanel.add(bookButton);
+                buttonPanel.add(bookButton);
+            }
         }
 
         backButton.setPreferredSize(new Dimension(150, 40));
@@ -68,13 +72,16 @@ public class AdminMediaList extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == backButton) {
             dispose();
-            UserLogin login = new UserLogin();
+            Login login = new Login();
         } else {
-            for (Book book : books) {
-                if (e.getActionCommand().equals(book.title)) {
-                    dispose();
-                    AdminMediaAction mediaAction = new AdminMediaAction(book);
-                    break;
+            for (Media currItem : books) {
+                if(currItem instanceof Book){
+                    Book book = (Book) currItem;
+                    if (e.getActionCommand().equals(book.title)) {
+                        dispose();
+                        AdminMediaAction mediaAction = new AdminMediaAction(book);
+                        break;
+                    }
                 }
             }
         }

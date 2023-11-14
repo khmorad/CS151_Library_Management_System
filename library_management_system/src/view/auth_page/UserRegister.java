@@ -3,6 +3,7 @@ package view.auth_page;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import controller.LMSController;
 import view.Index;
 
 import javax.swing.*;
@@ -199,11 +200,14 @@ public class UserRegister extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerButton) {
+            if(!LMSController.lms.register(userID.getText(), this.firstName.getText(), this.lastName.getText(), this.email.getText(), new String(password.getPassword()), false)){
+                JOptionPane.showMessageDialog(this, "Registration failed!");
+            }
             dispose();
-            UserLogin userLogin = new UserLogin(userID.getText(), new String(password.getPassword()));
+            Login userLogin = new Login(userID.getText(), new String(password.getPassword()));
         } else if (e.getSource() == loginButton) {
             dispose();
-            UserLogin userLogin = new UserLogin();
+            Login userLogin = new Login();
         } else {
             dispose();
             Index index = new Index();

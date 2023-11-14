@@ -2,6 +2,7 @@ package view.auth_page;
 
 import javax.swing.*;
 
+import controller.LMSController;
 import view.Index;
 import view.media_list.AdminMediaList;
 
@@ -99,6 +100,11 @@ public class AdminLogin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
+            if (LMSController.lms.login(this.username.getText(), new String(this.password.getPassword())) == null){
+                //Login Failed
+                LMSController.lms.printDevMsg("Login failed, from admin login button");
+                return;
+            }
             dispose();
             try {
                 AdminMediaList medias = new AdminMediaList(

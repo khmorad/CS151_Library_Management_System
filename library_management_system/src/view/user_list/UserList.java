@@ -1,23 +1,20 @@
-package view.media_list;
+package view.user_list;
 
-import model.Book;
-import model.Media;
+import model.User;
 import view.auth_page.Login;
-import view.media_action.UserMediaAction;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.util.List;
 
-public class UserMediaList extends JFrame implements ActionListener {
-    private List<Media> books;
+public class UserList extends JFrame implements ActionListener {
+    private List<User> users;
     private JButton backButton = new JButton("Logout");
 
-    public UserMediaList(List<Media> books) {
-        this.books = books;
+    public UserList(List<User> users) {
+        this.users = users;
 
         setTitle("Book Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,26 +26,23 @@ public class UserMediaList extends JFrame implements ActionListener {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setAlignmentY(Component.TOP_ALIGNMENT);
 
-        for (Media currItem : books) {
-            if(currItem instanceof Book){
-                Book book = (Book) currItem;
-                JButton bookButton = new JButton(book.title);
-                bookButton.addActionListener(this);
+        for (User user : users) {
+            JButton userButton = new JButton(user.userID);
+            userButton.addActionListener(this);
 
-                bookButton.setPreferredSize(new Dimension(300, 50));
-                bookButton.setBackground(Color.lightGray);
-                bookButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            userButton.setPreferredSize(new Dimension(300, 50));
+            userButton.setBackground(Color.lightGray);
+            userButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-                // Style and design changes for the buttons
-                bookButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-                bookButton.setFocusPainted(false);
-                bookButton.setContentAreaFilled(false);
-                bookButton.setOpaque(true);
-                bookButton.setBorderPainted(false);
-                buttonPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Spacing between buttons
+            // Style and design changes for the buttons
+            userButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+            userButton.setFocusPainted(false);
+            userButton.setContentAreaFilled(false);
+            userButton.setOpaque(true);
+            userButton.setBorderPainted(false);
+            buttonPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Spacing between buttons
 
-                buttonPanel.add(bookButton);
-            }
+            buttonPanel.add(userButton);
         }
 
         backButton.setPreferredSize(new Dimension(150, 40));
@@ -79,15 +73,12 @@ public class UserMediaList extends JFrame implements ActionListener {
             dispose();
             Login login = new Login();
         } else {
-            for (Media currItem : books) {
-                if (currItem instanceof Book) {
-                    Book book = (Book) currItem;
-                    if (e.getActionCommand().equals(book.title)) {
-                        dispose();
-                        UserMediaAction mediaAction = new UserMediaAction(book);
-                        break;
-                    }
-                }
+            for (User currUser : users) {
+//                    if (e.getActionCommand().equals(currUser.userID)) {
+//                        dispose();
+//                        UserMediaAction mediaAction = new UserMediaAction(currUser);
+//                        break;
+//                    }
             }
         }
     }
