@@ -5,8 +5,12 @@ import controller.LMSController;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class User {
+
+    private static List<String> UUIDs = new ArrayList<>();
+
     public String userID;
     public String firstName;
     public String lastName;
@@ -17,13 +21,13 @@ public class User {
 
     // Constructor
     public User(String userID, String firstName, String lastName, String email, String passwd, File profilePic) {
-        this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = passwd;
         this.profilePic = profilePic;
 
+        this.userID = userID;
     }
 
     public boolean verifyPass(String password){
@@ -51,9 +55,8 @@ public class User {
         return password;
     }
 
-
-
     public File getProfilePic() {
         return profilePic;
     }
+
 }

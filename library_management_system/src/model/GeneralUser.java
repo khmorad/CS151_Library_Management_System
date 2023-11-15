@@ -17,19 +17,18 @@ public class GeneralUser extends User{
     }
 
     /*User Functions: check out, return, update */
-    public boolean checkOut(String itemToCheckoutID){
+    public boolean checkOut(Media itemToCheckout){
         //Perform checkout
-        Media itemToCheckout = LMSController.lms.getMediaById(itemToCheckoutID);
-        if(itemToCheckout == null){
+        if(itemToCheckout == null || !LMSController.lms.getCatalog().contains(itemToCheckout)){
             LMSController.lms.printDevMsg("Item doesn't exist!");
-
             return false;
         }
 
-        if(this.getCheckedOut().contains(itemToCheckout) || itemToCheckout.isCheckedOut()){
-            LMSController.lms.printDevMsg("User already has item checked out!");
+        if(itemToCheckout.isCheckedOut()){
+            LMSController.lms.printDevMsg("Item checked out already!");
             return false;
         }
+
         this.getCheckedOut().add(itemToCheckout);
         itemToCheckout.setCheckedOut(true);
         return true;
@@ -39,6 +38,7 @@ public class GeneralUser extends User{
         //Perform return
         if(!this.getCheckedOut().contains(itemToReturn)){
             LMSController.lms.printDevMsg(LMSController.lms.getCurrentUser().userID + " didn't check out Item: " +itemToReturn.getItemID());
+            return false;
         }
         this.getCheckedOut().remove(itemToReturn);
         itemToReturn.setCheckedOut(false);
