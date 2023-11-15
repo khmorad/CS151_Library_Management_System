@@ -23,11 +23,20 @@ public class Index extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(866, 650); // Slightly increased height to accommodate the quit button
         setLayout(new BorderLayout());
+
         getContentPane().setBackground(new Color(240, 240, 240));
 
-        BackgroundPanel backgroundPanel = new BackgroundPanel(
-                "library_management_system/src/view/graphics/spartan.jpg");
-        setContentPane(backgroundPanel);
+        JPanel contentPane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Load the image and paint it as the background
+                ImageIcon imageIcon = new ImageIcon("library_management_system/src/view/graphics/spartan.jpg");
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        contentPane.setLayout(new BorderLayout());
 
         JLabel welcomeLabel = new JLabel("Welcome to Martin Luther King, JR. Library");
         welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -36,6 +45,11 @@ public class Index extends JFrame implements ActionListener {
         JLabel selectRoleLabel = new JLabel("Please Select Your Role");
         selectRoleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         selectRoleLabel.setFont(new Font("Arial", Font.BOLD, 18));
+
+        JPanel messagePanel = new JPanel();
+        messagePanel.setLayout(new GridLayout(0, 1, 0, 10));
+        messagePanel.add(welcomeLabel);
+        messagePanel.add(selectRoleLabel);
 
         userButton.setFont(new Font("Arial", Font.BOLD, 14));
         userButton.setBackground(new Color(100, 150, 255));
@@ -63,14 +77,6 @@ public class Index extends JFrame implements ActionListener {
 
         bottomPanel.add(quitPanel, BorderLayout.SOUTH);
 
-        add(welcomeLabel, BorderLayout.NORTH);
-        add(selectRoleLabel, BorderLayout.CENTER);
-        add(bottomPanel, BorderLayout.SOUTH); // Added quit button panel
-        backgroundPanel.add(welcomeLabel);
-        backgroundPanel.add(selectRoleLabel);
-        backgroundPanel.add(buttonPanel);
-        backgroundPanel.add(quitPanel);
-
         userButton.setPreferredSize(new Dimension(150, 40));
         adminButton.setPreferredSize(new Dimension(150, 40));
         quitButton.setPreferredSize(new Dimension(100, 30));
@@ -96,6 +102,16 @@ public class Index extends JFrame implements ActionListener {
         userButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         adminButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         quitButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        buttonPanel.setBackground(new Color(255, 255, 255, 200));
+        contentPane.add(messagePanel, BorderLayout.PAGE_START);
+        contentPane.add(buttonPanel, BorderLayout.CENTER);
+        contentPane.add(quitPanel, BorderLayout.PAGE_END);
+        setContentPane(contentPane);
+        buttonPanel.setBackground(new Color(255, 255, 255, 200));
+        bottomPanel.setBackground(new Color(255, 255, 255, 200));
+        messagePanel.setBackground(new Color(255, 255, 255, 200));
+        quitPanel.setBackground(new Color(255, 255, 255, 200));
 
         userButton.addActionListener(this);
         adminButton.addActionListener(this);
