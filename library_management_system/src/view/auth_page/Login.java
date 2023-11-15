@@ -12,6 +12,7 @@ import javax.swing.event.DocumentListener;
 import controller.LMSController;
 import model.Book;
 import model.GeneralUser;
+import model.Librarian;
 import model.User;
 import view.media_list.AdminMediaList;
 import view.media_list.UserMediaList;
@@ -229,10 +230,10 @@ public class Login extends JFrame implements ActionListener {
                 LMSController.lms.setCatalog(Book.readFromJsonFile("library_management_system/database/books.json"));
 
                 if(currentUser instanceof GeneralUser){
-                    new UserMediaList(LMSController.lms.getCatalog());
+                    new UserMediaList();
 
-                }else{
-                    new AdminMediaList(LMSController.lms.getCatalog());
+                }else if(currentUser instanceof Librarian){
+                    new AdminMediaList();
                 }
 
             } catch (IOException e1) {
@@ -241,7 +242,7 @@ public class Login extends JFrame implements ActionListener {
 
         } else if (e.getSource() == backButton) {
             dispose();
-            UserRegister register = new UserRegister();
+            new UserRegister();
         }
     }
 

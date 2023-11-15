@@ -106,12 +106,8 @@ public class AdminLogin extends JFrame implements ActionListener {
                 return;
             }
             dispose();
-            try {
-                AdminMediaList medias = new AdminMediaList(
-                        Book.readFromJsonFile("library_management_system/database/books.json"));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            AdminMediaList medias = new AdminMediaList();
+
 
         } else if (e.getSource() == backButton) {
             dispose();
