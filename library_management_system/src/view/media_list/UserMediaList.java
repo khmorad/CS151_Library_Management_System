@@ -23,7 +23,16 @@ public class UserMediaList extends JFrame implements ActionListener {
         getContentPane().setBackground(new Color(240, 240, 240));
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(0, 1, 0, 10)); // Grid layout for buttons with spacing
+        buttonPanel.setLayout(new GridLayout(0, 2, 8, 10));
+
+        Color buttonColor = new Color(135, 206, 235);
+
+        // Convert RGB to HSB
+        float[] hsb = Color.RGBtoHSB(buttonColor.getRed(), buttonColor.getGreen(), buttonColor.getBlue(), null);
+
+        // Reduce the saturation by 50% (you can adjust this value)
+        hsb[1] *= 0.5f;
+        buttonColor = new Color(Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]));
 
         for (Book book : books) {
             JButton bookButton = new JButton(book.title);
@@ -31,13 +40,18 @@ public class UserMediaList extends JFrame implements ActionListener {
 
             // Button styling
             bookButton.setPreferredSize(new Dimension(300, 50));
-            bookButton.setBackground(Color.lightGray);
+            bookButton.setBackground(buttonColor); // Orange background
+            bookButton.setForeground(Color.BLACK); // White text color
             bookButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            bookButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+            bookButton.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15)); // Padding
             bookButton.setFocusPainted(false);
-            bookButton.setContentAreaFilled(false);
-            bookButton.setOpaque(true);
-            bookButton.setBorderPainted(false);
+            bookButton.setFont(new Font("Arial", Font.BOLD, 16)); // Font style
+
+            // Add shadow effect
+            bookButton.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(new Color(200, 120, 70), 1),
+                    BorderFactory.createEmptyBorder(4, 14, 4, 14)));
+
             buttonPanel.add(bookButton);
         }
 
@@ -46,6 +60,7 @@ public class UserMediaList extends JFrame implements ActionListener {
 
         JPanel listPanel = new JPanel(new BorderLayout());
         listPanel.setBackground(Color.WHITE); // Set background color for the list panel
+        listPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add padding
         listPanel.add(scrollPane, BorderLayout.CENTER);
 
         backButton.setPreferredSize(new Dimension(150, 40));
@@ -56,9 +71,11 @@ public class UserMediaList extends JFrame implements ActionListener {
         backButton.addActionListener(this);
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        topPanel.setBackground(Color.WHITE); // Set background color for the top panel
         topPanel.add(backButton);
 
         JPanel containerPanel = new JPanel(new BorderLayout());
+
         containerPanel.add(topPanel, BorderLayout.NORTH);
         containerPanel.add(listPanel, BorderLayout.CENTER);
 

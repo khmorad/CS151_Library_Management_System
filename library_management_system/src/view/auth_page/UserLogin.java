@@ -20,6 +20,7 @@ public class UserLogin extends JFrame implements ActionListener {
     private JButton backButton = new JButton("Back to Register");
 
     public UserLogin() {
+
         setTitle("SJSU Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(866, 650);

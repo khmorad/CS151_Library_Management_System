@@ -23,6 +23,18 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
+        JPanel contentPane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Load the image and paint it as the background
+                ImageIcon imageIcon = new ImageIcon("library_management_system/src/view/graphics/spartan.jpg");
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        contentPane.setLayout(new BorderLayout());
+
         if (book.isCheckedOut()) {
             availabilityLabel = new JLabel("Availability: Not Available");
             availabilityLabel.setForeground(Color.RED);
@@ -90,9 +102,11 @@ public class UserMediaAction extends JFrame implements ActionListener {
         returnButton.addActionListener(this);
         backButton.addActionListener(this);
 
-        add(bookPanel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.PAGE_END);
-
+        bookPanel.setBackground(new Color(255, 255, 255, 200));
+        buttonPanel.setBackground(new Color(255, 255, 255, 200));
+        contentPane.add(bookPanel, BorderLayout.CENTER);
+        contentPane.add(buttonPanel, BorderLayout.SOUTH);
+        setContentPane(contentPane);
         setLocationRelativeTo(null);
         setVisible(true);
     }
