@@ -36,7 +36,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
         JLabel bookTitleLabel = new JLabel("Book Title: " + book.title);
         JLabel authorLabel = new JLabel("Author: " + book.author);
         JLabel isbnLabel = new JLabel("ISBN: " + book.ISBN);
-        JLabel availabilityLabel = new JLabel("Availability: Available");
+        JLabel availabilityLabel = new JLabel("Checked out: " + (book.isCheckedOut() ? "Yes" : "No"));
 
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -103,22 +103,20 @@ public class UserMediaAction extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == checkoutButton) {
-            ///If user is in this view, they are not librarian.
+            ///If user is in this view, they are not a librarian.
             GeneralUser genUser = (GeneralUser) LMSController.lms.getCurrentUser();
             if(genUser.checkOut(this.currentItemID)){
 
             }
             System.out.println("CHECKOUT");
+
+
         } else if (e.getSource() == returnButton) {
             System.out.println("RETURN");
+
         } else if (e.getSource() == backButton) {
             dispose();
-            try {
-                UserMediaList medias = new UserMediaList(
-                        Book.readFromJsonFile("library_management_system/database/books.json"));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            new UserMediaList();
         }
     }
 }

@@ -229,7 +229,7 @@ public class Login extends JFrame implements ActionListener {
                 LMSController.lms.setCatalog(Book.readFromJsonFile("library_management_system/database/books.json"));
 
                 if(currentUser instanceof GeneralUser){
-                    new UserMediaList(LMSController.lms.getCatalog());
+                    new UserMediaList();
 
                 }else{
                     new AdminMediaList(LMSController.lms.getCatalog());

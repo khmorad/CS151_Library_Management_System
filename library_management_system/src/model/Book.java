@@ -34,6 +34,7 @@ public class Book extends Media {
             parseJson(jsonContent.toString(), books);
         }
 
+        System.out.println(books.get(0));
         return books;
     }
 

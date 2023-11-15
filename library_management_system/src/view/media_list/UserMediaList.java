@@ -1,5 +1,6 @@
 package view.media_list;
 
+import controller.LMSController;
 import model.Book;
 import model.Media;
 import view.auth_page.Login;
@@ -13,11 +14,9 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class UserMediaList extends JFrame implements ActionListener {
-    private List<Media> books;
     private JButton backButton = new JButton("Logout");
 
-    public UserMediaList(List<Media> books) {
-        this.books = books;
+    public UserMediaList() {
 
         setTitle("Book Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,7 +28,7 @@ public class UserMediaList extends JFrame implements ActionListener {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setAlignmentY(Component.TOP_ALIGNMENT);
 
-        for (Media currItem : books) {
+        for (Media currItem : LMSController.lms.getCatalog()) {
             if(currItem instanceof Book){
                 Book book = (Book) currItem;
                 JButton bookButton = new JButton(book.title);
@@ -79,12 +78,12 @@ public class UserMediaList extends JFrame implements ActionListener {
             dispose();
             Login login = new Login();
         } else {
-            for (Media currItem : books) {
+            for (Media currItem : LMSController.lms.getCatalog()) {
                 if (currItem instanceof Book) {
                     Book book = (Book) currItem;
                     if (e.getActionCommand().equals(book.title)) {
                         dispose();
-                        UserMediaAction mediaAction = new UserMediaAction(book);
+                        new UserMediaAction(book);
                         break;
                     }
                 }

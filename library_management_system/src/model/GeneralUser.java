@@ -22,12 +22,11 @@ public class GeneralUser extends User{
         Media itemToCheckout = LMSController.lms.getMediaById(itemToCheckoutID);
         if(itemToCheckout == null){
             LMSController.lms.printDevMsg("Item doesn't exist!");
-
             return false;
         }
 
-        if(this.getCheckedOut().contains(itemToCheckout) || itemToCheckout.isCheckedOut()){
-            LMSController.lms.printDevMsg("User already has item checked out!");
+        if(this.getCheckedOut().contains(itemToCheckout)){
+            LMSController.lms.printDevMsg("Failed to check out!");
             return false;
         }
         this.getCheckedOut().add(itemToCheckout);
