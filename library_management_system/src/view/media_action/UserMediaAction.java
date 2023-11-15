@@ -47,6 +47,13 @@ public class UserMediaAction extends JFrame implements ActionListener {
         JLabel authorLabel = new JLabel("Author: " + book.author);
         JLabel isbnLabel = new JLabel("ISBN: " + book.ISBN);
 
+        ImageIcon bookTitleLabelIcon = new ImageIcon("library_management_system/src/view/graphics/icon3.png");
+        bookTitleLabel.setIcon(bookTitleLabelIcon);
+        ImageIcon authIcon = new ImageIcon("library_management_system/src/view/graphics/icon4.png");
+        authorLabel.setIcon(authIcon);
+        ImageIcon isbnLabelIcon = new ImageIcon("library_management_system/src/view/graphics/icon5.png");
+        isbnLabel.setIcon(isbnLabelIcon);
+
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));
         isbnLabel.setFont(new Font("Arial", Font.BOLD, 16));

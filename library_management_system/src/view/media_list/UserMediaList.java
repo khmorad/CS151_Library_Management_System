@@ -46,7 +46,9 @@ public class UserMediaList extends JFrame implements ActionListener {
             bookButton.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15)); // Padding
             bookButton.setFocusPainted(false);
             bookButton.setFont(new Font("Arial", Font.BOLD, 16)); // Font style
-
+            ImageIcon icon = new ImageIcon("library_management_system/src/view/graphics/icon2.png"); // Replace with
+                                                                                                     // your icon's path
+            bookButton.setIcon(icon);
             // Add shadow effect
             bookButton.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(new Color(200, 120, 70), 1),
