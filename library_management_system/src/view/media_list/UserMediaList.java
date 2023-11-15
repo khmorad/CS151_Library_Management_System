@@ -34,8 +34,8 @@ public class UserMediaList extends JFrame implements ActionListener {
         hsb[1] *= 0.5f;
         buttonColor = new Color(Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]));
 
-        for (Book book : books) {
-            JButton bookButton = new JButton(book.title);
+        for (int i = 1; i < books.size(); i++) {
+            JButton bookButton = new JButton(books.get(i).title);
             bookButton.addActionListener(this);
 
             // Button styling
