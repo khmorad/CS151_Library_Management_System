@@ -1,6 +1,7 @@
 package view.media_list;
 
 import model.Book;
+import view.Index;
 import view.auth_page.UserLogin;
 import view.media_action.UserMediaAction;
 
@@ -91,7 +92,7 @@ public class UserMediaList extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == backButton) {
             dispose();
-            UserLogin login = new UserLogin();
+            Index login = new Index();
         } else {
             for (Book book : books) {
                 if (e.getActionCommand().equals(book.title)) {

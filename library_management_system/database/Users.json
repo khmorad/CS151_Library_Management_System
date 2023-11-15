@@ -1,11 +1,5 @@
 [
   {
-    "userID":"987654321",
-    "first_name":"Sarah",
-    "last_name":"Thompson",
-    "email":"sarah.thompson@example.com"
-  },
-  {
     "userID":"123456789",
     "first_name":"John",
     "last_name":"Davis",
@@ -22,6 +16,18 @@
     "first_name":"Zoe",
     "last_name":"Campbell",
     "email":"zoe.campbell@example.com"
+  },
+  {
+    "userID":"9876543210",
+    "first_name":"Merlin",
+    "last_name":"TheCooker",
+    "email":"merlin.cooker@gmail.com"
+  },
+  {
+    "userID":"9876543210",
+    "first_name":"Merlin",
+    "last_name":"TheCooker",
+    "email":"merlin.cooker@gmail.com"
   },
   {
     "userID":"9876543210",
