@@ -24,7 +24,7 @@ public abstract class Media {
     }
 
     public boolean isCheckedOut() {
-        return isCheckedOut;
+        return this.isCheckedOut;
     }
 
     public String getItemID() {
@@ -38,11 +38,11 @@ public abstract class Media {
     }
 
     public void setReserved(boolean reserved) {
-        isReserved = reserved;
+        this.isReserved = reserved;
     }
 
     public void setCheckedOut(boolean checkedOut) {
-        isCheckedOut = checkedOut;
+        this.isCheckedOut = checkedOut;
     }
 
     public abstract void displayInfo();
