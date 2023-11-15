@@ -86,6 +86,15 @@ public class User {
         }
     }
 
+    public static User findUserByID(List<User> users, String targetUserID) {
+        for (User user : users) {
+            if (user.userID.equals(targetUserID)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     private static String convertListToJson(List<User> users) {
         if (users.isEmpty()) {
             return "[]";
@@ -106,5 +115,22 @@ public class User {
         return json.toString();
     }
 
-    // Other methods and fields can be added as needed
+    public static void removeUserByID(List<User> users, String targetUserID) {
+        User userToRemove = findUserByID(users, targetUserID);
+        if (userToRemove != null) {
+            users.remove(userToRemove);
+            System.out.println("User with ID " + targetUserID + " has been removed.");
+        } else {
+            System.out.println("User with ID " + targetUserID + " not found.");
+        }
+    }
+
+    public void displayInfo() {
+        System.out.println("Book Information:");
+        System.out.println("id num: " + userID);
+        System.out.println("first name: " + firstName);
+        System.out.println("last name: " + lastName);
+        System.out.println("enail: " + email);
+    }
+
 }

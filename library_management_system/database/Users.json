@@ -25,14 +25,8 @@
   },
   {
     "userID":"9876543210",
-    "first_name":"Emma",
-    "last_name":"Johnson",
-    "email":"emma.johnson@example.com"
-  },
-  {
-    "userID":"9876543210",
-    "first_name":"Emma",
-    "last_name":"Johnson",
-    "email":"emma.johnson@example.com"
+    "first_name":"Merlin",
+    "last_name":"TheCooker",
+    "email":"merlin.cooker@gmail.com"
   }
 ]
