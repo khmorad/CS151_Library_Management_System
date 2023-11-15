@@ -1,5 +1,6 @@
 package view.user_list;
 
+import controller.LMSController;
 import model.User;
 import view.auth_page.Login;
 
@@ -10,11 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class UserList extends JFrame implements ActionListener {
-    private List<User> users;
     private JButton backButton = new JButton("Logout");
 
-    public UserList(List<User> users) {
-        this.users = users;
+    public UserList() {
 
         setTitle("Book Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,7 +25,7 @@ public class UserList extends JFrame implements ActionListener {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setAlignmentY(Component.TOP_ALIGNMENT);
 
-        for (User user : users) {
+        for (User user : LMSController.lms.getUsers()) {
             JButton userButton = new JButton(user.userID);
             userButton.addActionListener(this);
 
@@ -73,7 +72,7 @@ public class UserList extends JFrame implements ActionListener {
             dispose();
             Login login = new Login();
         } else {
-            for (User currUser : users) {
+            for (User currUser : LMSController.lms.getUsers()) {
 //                    if (e.getActionCommand().equals(currUser.userID)) {
 //                        dispose();
 //                        UserMediaAction mediaAction = new UserMediaAction(currUser);

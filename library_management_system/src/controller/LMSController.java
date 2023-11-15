@@ -23,8 +23,11 @@ public class LMSController {
         this.isDev = isDev; //enables Development features for easy debugging
 
         //admin account for testing
-        if(this.isDev)
+        if(this.isDev){
             this.users.add(new Librarian("admin", "admin", "admin", "admin@admin.com", "admin", null));
+            this.users.add(new GeneralUser("test", "test", "test", "test@test.com", "test", null));
+
+        }
     }
 
 

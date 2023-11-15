@@ -7,6 +7,7 @@ import java.io.IOException;
 import controller.LMSController;
 import model.Book;
 import model.GeneralUser;
+import model.Media;
 import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +23,12 @@ public class UserMediaAction extends JFrame implements ActionListener {
     JButton returnButton = new JButton("Return");
     JButton backButton = new JButton("Back");
 
-    private String currentItemID;
+    JLabel bookTitleLabel;
+    JLabel authorLabel;
+    JLabel isbnLabel;
+    JLabel availabilityLabel;
+
+    private Media currentMediaItem;
 
     public UserMediaAction(Book book) {
 
@@ -32,11 +38,11 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
-        this.currentItemID = book.getItemID();
-        JLabel bookTitleLabel = new JLabel("Book Title: " + book.title);
-        JLabel authorLabel = new JLabel("Author: " + book.author);
-        JLabel isbnLabel = new JLabel("ISBN: " + book.ISBN);
-        JLabel availabilityLabel = new JLabel("Checked out: " + (book.isCheckedOut() ? "Yes" : "No"));
+        this.currentMediaItem = book;
+        this.bookTitleLabel = new JLabel("Book Title: " + book.title);
+        this.authorLabel = new JLabel("Author: " + book.author);
+        this.isbnLabel = new JLabel("ISBN: " + book.ISBN);
+        this.availabilityLabel = new JLabel("Available: " + (book.isCheckedOut() ? "No" : "Yes"));
 
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -100,20 +106,31 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    private void setField(Book book){
+        this.bookTitleLabel.setText("Book Title: " + book.title);
+        this.authorLabel.setText("Author: " + book.author);
+        this.isbnLabel.setText("ISBN: " + book.ISBN);
+        this.availabilityLabel.setText("Available: " + (book.isCheckedOut() ? "No" : "Yes"));
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
+        ///If user is in this view, they are not librarian.
+        GeneralUser genUser = (GeneralUser) LMSController.lms.getCurrentUser();
+
         if (e.getSource() == checkoutButton) {
-            ///If user is in this view, they are not a librarian.
-            GeneralUser genUser = (GeneralUser) LMSController.lms.getCurrentUser();
-            if(genUser.checkOut(this.currentItemID)){
-
+            if (genUser.checkOut(this.currentMediaItem)) {
+                LMSController.lms.printDevMsg("CHECKOUT");
             }
-            System.out.println("CHECKOUT");
-
-
+            if (this.currentMediaItem instanceof Book)
+                this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == returnButton) {
-            System.out.println("RETURN");
+            if (genUser.returnMedia(this.currentMediaItem)) {
+                LMSController.lms.printDevMsg("RETURN");
+            }
 
+            if (this.currentMediaItem instanceof Book)
+                this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == backButton) {
             dispose();
             new UserMediaList();

@@ -47,6 +47,9 @@ public class UserMediaList extends JFrame implements ActionListener {
                 buttonPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Spacing between buttons
 
                 buttonPanel.add(bookButton);
+
+                System.out.println("");
+                book.displayInfo();
             }
         }
 
