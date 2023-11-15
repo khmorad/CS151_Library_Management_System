@@ -1,6 +1,7 @@
 package view.media_list;
 
 import model.Book;
+import view.Index;
 import view.auth_page.AdminLogin;
 import view.auth_page.UserLogin;
 import view.media_action.AdminMediaAction;
@@ -88,7 +89,8 @@ public class AdminMediaList extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == backButton) {
             dispose();
-            AdminLogin login = new AdminLogin();
+            Index index = new Index();
+
         } else {
             for (Book book : books) {
                 if (e.getActionCommand().equals(book.title)) {
