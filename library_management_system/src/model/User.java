@@ -43,16 +43,27 @@ public class User {
 
     private static void parseJson(String jsonContent, List<User> users) {
         jsonContent = jsonContent.trim();
+        // remove the spaces of json file using trip then remove the closing
+        // and opening brackets
+        // {
+        // "userID": "431",
+        // .
+        // .
+        // }
         if (jsonContent.startsWith("[")) {
             jsonContent = jsonContent.substring(1);
         }
         if (jsonContent.endsWith("]")) {
             jsonContent = jsonContent.substring(0, jsonContent.length() - 1);
         }
-
+        // \\}, represents closing bracket and comma
+        // \\s* represent (space|tab|newline) and { is opening bracket of next json item
         String[] userArray = jsonContent.split("\\},\\s*\\{");
 
         for (String userStr : userArray) {
+            // now removing all the bracket which all its left now is the comma whihch then
+            // we use
+            // .split function to inset it into a string array
             userStr = userStr.replace("{", "").replace("}", ""); // Remove extra curly braces
 
             String[] keyValuePairs = userStr.split(",");
