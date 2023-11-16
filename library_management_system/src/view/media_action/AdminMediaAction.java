@@ -6,22 +6,10 @@ import java.io.IOException;
 
 import controller.LMSController;
 import model.Book;
+import model.Media;
 import view.media_list.AdminMediaList;
-import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
-
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class AdminMediaAction extends JFrame implements ActionListener {
     JTextField titleField = new JTextField(20);
@@ -44,10 +32,27 @@ public class AdminMediaAction extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
+        JPanel contentPane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Load the image and paint it as the background
+                ImageIcon imageIcon = new ImageIcon("library_management_system/src/view/graphics/spartan.jpg");
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        contentPane.setLayout(new BorderLayout());
+
         JLabel bookTitleLabel = new JLabel("Book Title:");
         JLabel authorLabel = new JLabel("Author:");
         JLabel isbnLabel = new JLabel("ISBN:");
         JLabel availabilityLabel = new JLabel("Availability:");
+        if (book.isCheckedOut()) {
+            availabilityField.setText("Not Available");
+        } else {
+            availabilityField.setText("Available");
+        }
 
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -73,14 +78,13 @@ public class AdminMediaAction extends JFrame implements ActionListener {
         deleteButton.setForeground(Color.WHITE);
         cancelButton.setForeground(Color.WHITE);
 
-        updateButton.setBackground(buttonColor);
+        updateButton.setBackground(new Color(0, 150, 0));
         deleteButton.setBackground(new Color(250, 0, 0));
         cancelButton.setBackground(Color.lightGray);
 
         titleField.setText(book.title);
         authorField.setText(book.author);
         isbnField.setText(book.ISBN);
-        availabilityField.setText("To be updated");
 
         JPanel bookPanel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -119,9 +123,12 @@ public class AdminMediaAction extends JFrame implements ActionListener {
         updateButton.addActionListener(this);
         deleteButton.addActionListener(this);
         cancelButton.addActionListener(this);
+        bookPanel.setBackground(new Color(255, 255, 255, 200));
+        buttonPanel.setBackground(new Color(255, 255, 255, 200));
+        contentPane.add(bookPanel, BorderLayout.CENTER);
+        contentPane.add(buttonPanel, BorderLayout.SOUTH);
 
-        add(bookPanel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.PAGE_END);
+        setContentPane(contentPane);
 
         setLocationRelativeTo(null);
         setVisible(true);

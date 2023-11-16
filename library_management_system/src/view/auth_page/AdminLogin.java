@@ -20,6 +20,7 @@ public class AdminLogin extends JFrame implements ActionListener {
     private JButton backButton = new JButton("Back");
 
     public AdminLogin() {
+
         setTitle("SJSU Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(866, 650);

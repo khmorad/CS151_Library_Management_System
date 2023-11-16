@@ -2,6 +2,7 @@ package view.media_list;
 
 import controller.LMSController;
 import model.Book;
+import view.Index;
 import model.Media;
 import view.auth_page.Login;
 import view.media_action.UserMediaAction;
@@ -10,7 +11,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.util.List;
 
 public class UserMediaList extends JFrame implements ActionListener {
@@ -21,37 +21,53 @@ public class UserMediaList extends JFrame implements ActionListener {
         setTitle("Book Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(866, 650);
-        setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        buttonPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        buttonPanel.setLayout(new GridLayout(0, 2, 8, 10));
 
-        for (Media currItem : LMSController.lms.getCatalog()) {
-            if(currItem instanceof Book){
-                Book book = (Book) currItem;
-                JButton bookButton = new JButton(book.title);
+        Color buttonColor = new Color(135, 206, 235);
+
+        // Convert RGB to HSB
+        float[] hsb = Color.RGBtoHSB(buttonColor.getRed(), buttonColor.getGreen(), buttonColor.getBlue(), null);
+
+        // Reduce the saturation by 50% (you can adjust this value)
+        hsb[1] *= 0.5f;
+        buttonColor = new Color(Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]));
+        for (int i = 1; i < LMSController.lms.getCatalog().size(); i++) {
+            if(LMSController.lms.getCatalog().get(i) instanceof Book){
+                Book tmp = (Book) LMSController.lms.getCatalog().get(i);
+                JButton bookButton = new JButton(tmp.title);
                 bookButton.addActionListener(this);
 
+                // Button styling
                 bookButton.setPreferredSize(new Dimension(300, 50));
-                bookButton.setBackground(Color.lightGray);
+                bookButton.setBackground(buttonColor); // Orange background
+                bookButton.setForeground(Color.BLACK); // White text color
                 bookButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-                // Style and design changes for the buttons
-                bookButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+                bookButton.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15)); // Padding
                 bookButton.setFocusPainted(false);
-                bookButton.setContentAreaFilled(false);
-                bookButton.setOpaque(true);
-                bookButton.setBorderPainted(false);
-                buttonPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Spacing between buttons
+                bookButton.setFont(new Font("Arial", Font.BOLD, 16)); // Font style
+
+                // Add shadow effect
+                bookButton.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(new Color(200, 120, 70), 1),
+                        BorderFactory.createEmptyBorder(4, 14, 4, 14)));
+
+                ImageIcon icon = new ImageIcon("library_management_system/src/view/graphics/icon2.png"); // Replace with
+                bookButton.setIcon(icon);
 
                 buttonPanel.add(bookButton);
-
-                System.out.println("");
-                book.displayInfo();
             }
         }
+
+        JScrollPane scrollPane = new JScrollPane(buttonPanel);
+        scrollPane.setPreferredSize(new Dimension(400, 500)); // Set preferred size for the scroll pane
+
+        JPanel listPanel = new JPanel(new BorderLayout());
+        listPanel.setBackground(Color.WHITE); // Set background color for the list panel
+        listPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add padding
+        listPanel.add(scrollPane, BorderLayout.CENTER);
 
         backButton.setPreferredSize(new Dimension(150, 40));
         backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -60,14 +76,14 @@ public class UserMediaList extends JFrame implements ActionListener {
         backButton.setFocusPainted(false);
         backButton.addActionListener(this);
 
-        // Create a panel for the top right corner
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        topPanel.setBackground(Color.WHITE); // Set background color for the top panel
         topPanel.add(backButton);
 
-        // Create a container panel to hold the buttons and the top panel
         JPanel containerPanel = new JPanel(new BorderLayout());
+
         containerPanel.add(topPanel, BorderLayout.NORTH);
-        containerPanel.add(new JScrollPane(buttonPanel), BorderLayout.CENTER);
+        containerPanel.add(listPanel, BorderLayout.CENTER);
 
         add(containerPanel);
 
@@ -79,7 +95,7 @@ public class UserMediaList extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == backButton) {
             dispose();
-            Login login = new Login();
+            Index index = new Index();
         } else {
             for (Media currItem : LMSController.lms.getCatalog()) {
                 if (currItem instanceof Book) {

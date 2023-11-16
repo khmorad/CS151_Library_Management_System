@@ -12,21 +12,15 @@ import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
 public class UserMediaAction extends JFrame implements ActionListener {
     JButton checkoutButton = new JButton("Checkout");
     JButton returnButton = new JButton("Return");
     JButton backButton = new JButton("Back");
+    JLabel availabilityLabel;
 
     JLabel bookTitleLabel;
     JLabel authorLabel;
     JLabel isbnLabel;
-    JLabel availabilityLabel;
 
     private Media currentMediaItem;
 
@@ -37,12 +31,42 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setSize(866, 650);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
-
         this.currentMediaItem = book;
         this.bookTitleLabel = new JLabel("Book Title: " + book.title);
         this.authorLabel = new JLabel("Author: " + book.author);
         this.isbnLabel = new JLabel("ISBN: " + book.ISBN);
         this.availabilityLabel = new JLabel("Available: " + (book.isCheckedOut() ? "No" : "Yes"));
+
+        JPanel contentPane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Load the image and paint it as the background
+                ImageIcon imageIcon = new ImageIcon("library_management_system/src/view/graphics/spartan.jpg");
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        contentPane.setLayout(new BorderLayout());
+
+        if (book.isCheckedOut()) {
+            availabilityLabel = new JLabel("Availability: Not Available");
+            availabilityLabel.setForeground(Color.RED);
+        } else {
+            availabilityLabel = new JLabel("Availability: Available");
+
+        }
+
+        JLabel bookTitleLabel = new JLabel("Book Title: " + book.title);
+        JLabel authorLabel = new JLabel("Author: " + book.author);
+        JLabel isbnLabel = new JLabel("ISBN: " + book.ISBN);
+
+        ImageIcon bookTitleLabelIcon = new ImageIcon("library_management_system/src/view/graphics/icon3.png");
+        bookTitleLabel.setIcon(bookTitleLabelIcon);
+        ImageIcon authIcon = new ImageIcon("library_management_system/src/view/graphics/icon4.png");
+        authorLabel.setIcon(authIcon);
+        ImageIcon isbnLabelIcon = new ImageIcon("library_management_system/src/view/graphics/icon5.png");
+        isbnLabel.setIcon(isbnLabelIcon);
 
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -99,9 +123,11 @@ public class UserMediaAction extends JFrame implements ActionListener {
         returnButton.addActionListener(this);
         backButton.addActionListener(this);
 
-        add(bookPanel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.PAGE_END);
-
+        bookPanel.setBackground(new Color(255, 255, 255, 200));
+        buttonPanel.setBackground(new Color(255, 255, 255, 200));
+        contentPane.add(bookPanel, BorderLayout.CENTER);
+        contentPane.add(buttonPanel, BorderLayout.SOUTH);
+        setContentPane(contentPane);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -122,6 +148,8 @@ public class UserMediaAction extends JFrame implements ActionListener {
             if (genUser.checkOut(this.currentMediaItem)) {
                 LMSController.lms.printDevMsg("CHECKOUT");
             }
+
+            //Bug: When button is pressed and UI is updated, there is a werid background added to the reply.
             if (this.currentMediaItem instanceof Book)
                 this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == returnButton) {
@@ -129,6 +157,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
                 LMSController.lms.printDevMsg("RETURN");
             }
 
+            //Bug: When button is pressed and UI is updated, there is a werid background added to the reply.
             if (this.currentMediaItem instanceof Book)
                 this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == backButton) {

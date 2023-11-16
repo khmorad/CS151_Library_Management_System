@@ -202,9 +202,11 @@ public class UserRegister extends JFrame implements ActionListener {
         if (e.getSource() == registerButton) {
             if(!LMSController.lms.register(userID.getText(), this.firstName.getText(), this.lastName.getText(), this.email.getText(), new String(password.getPassword()), false)){
                 JOptionPane.showMessageDialog(this, "Registration failed!");
+            }else{
+                dispose();
+                Login userLogin = new Login(userID.getText(), new String(password.getPassword()));
             }
-            dispose();
-            Login userLogin = new Login(userID.getText(), new String(password.getPassword()));
+
         } else if (e.getSource() == loginButton) {
             dispose();
             Login userLogin = new Login();
