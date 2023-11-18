@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import view.auth_page.AdminLogin;
+import view.auth_page.Login;
 import view.auth_page.UserRegister;
 
 import java.awt.*;
@@ -116,6 +117,7 @@ public class Index extends JFrame implements ActionListener {
         adminButton.addActionListener(this);
         quitButton.addActionListener(this); // ActionListener for quit button
 
+
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -128,7 +130,7 @@ public class Index extends JFrame implements ActionListener {
             UserRegister userLogin = new UserRegister();
         } else if (e.getSource() == adminButton) {
             dispose();
-            AdminLogin adminLogin = new AdminLogin();
+            Login adminLogin = new Login();
         } else if (e.getSource() == quitButton) {
             System.exit(0); // Quit application when quit button is clicked
         }

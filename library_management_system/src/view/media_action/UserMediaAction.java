@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import controller.LMSController;
 import model.Book;
+import model.GeneralUser;
+import model.Media;
 import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +18,12 @@ public class UserMediaAction extends JFrame implements ActionListener {
     JButton backButton = new JButton("Back");
     JLabel availabilityLabel;
 
+    JLabel bookTitleLabel;
+    JLabel authorLabel;
+    JLabel isbnLabel;
+
+    private Media currentMediaItem;
+
     public UserMediaAction(Book book) {
 
         setTitle("Book Information");
@@ -22,6 +31,11 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setSize(866, 650);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(240, 240, 240));
+        this.currentMediaItem = book;
+        this.bookTitleLabel = new JLabel("Book Title: " + book.title);
+        this.authorLabel = new JLabel("Author: " + book.author);
+        this.isbnLabel = new JLabel("ISBN: " + book.ISBN);
+        this.availabilityLabel = new JLabel("Available: " + (book.isCheckedOut() ? "No" : "Yes"));
 
         JPanel contentPane = new JPanel() {
             @Override
@@ -118,20 +132,37 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    private void setField(Book book){
+        this.bookTitleLabel.setText("Book Title: " + book.title);
+        this.authorLabel.setText("Author: " + book.author);
+        this.isbnLabel.setText("ISBN: " + book.ISBN);
+        this.availabilityLabel.setText("Available: " + (book.isCheckedOut() ? "No" : "Yes"));
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
+        ///If user is in this view, they are not librarian.
+        GeneralUser genUser = (GeneralUser) LMSController.lms.getCurrentUser();
+
         if (e.getSource() == checkoutButton) {
-            System.out.println("CHECKOUT");
+            if (genUser.checkOut(this.currentMediaItem)) {
+                LMSController.lms.printDevMsg("CHECKOUT");
+            }
+
+            //Bug: When button is pressed and UI is updated, there is a werid background added to the reply.
+            if (this.currentMediaItem instanceof Book)
+                this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == returnButton) {
-            System.out.println("RETURN");
+            if (genUser.returnMedia(this.currentMediaItem)) {
+                LMSController.lms.printDevMsg("RETURN");
+            }
+
+            //Bug: When button is pressed and UI is updated, there is a werid background added to the reply.
+            if (this.currentMediaItem instanceof Book)
+                this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == backButton) {
             dispose();
-            try {
-                UserMediaList medias = new UserMediaList(
-                        Book.readFromJsonFile("library_management_system/database/books.json"));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            new UserMediaList();
         }
     }
 }
