@@ -4,9 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import controller.LMSController;
 import model.Book;
-import model.Media;
 import view.media_list.AdminMediaList;
 import javax.swing.*;
 import java.awt.*;
@@ -137,31 +135,19 @@ public class AdminMediaAction extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == updateButton) {
-            this.book.title = titleField.getText();
-            this.book.author = authorField.getText();
-            this.book.ISBN = isbnField.getText();
-            LMSController.lms.printDevMsg("UPDATE");
+            book.title = titleField.getText();
+            book.author = authorField.getText();
+            book.ISBN = isbnField.getText();
 
-            JOptionPane.showMessageDialog(this, "Item has been updated!");
+            System.out.println("UPDATE");
         } else if (e.getSource() == deleteButton) {
-            int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete \""+this.book.title+"\"");
-            switch (choice){
-                case 0:
-                    LMSController.lms.printDevMsg("DELETE!");
-                    LMSController.lms.getCatalog().remove(this.book);
-                    JOptionPane.showMessageDialog(this, "Item has been deleted!");
-
-                    //Simulate pressing cancelButton
-                    e.setSource(this.cancelButton);
-                    this.actionPerformed(e);
-                    break;
-                case 1, 2:
-                    LMSController.lms.printDevMsg("NO DELETE!");
-                    break;
-            }
+            System.out.println("DELETE");
         } else if (e.getSource() == cancelButton) {
             dispose();
-            AdminMediaList medias = new AdminMediaList();
+            
+                AdminMediaList medias = new AdminMediaList(
+                        );
+            
         }
     }
 }
