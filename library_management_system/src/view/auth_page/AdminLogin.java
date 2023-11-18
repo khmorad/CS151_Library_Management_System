@@ -110,7 +110,8 @@ public class AdminLogin extends JFrame implements ActionListener {
             AdminMediaList medias = new AdminMediaList();
 
 
-        } else if (e.getSource() == backButton) {
+        } 
+        else if (e.getSource() == backButton) {
             dispose();
             Index index = new Index();
         }
