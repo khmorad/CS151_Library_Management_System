@@ -6,7 +6,7 @@ import java.io.File;
 
 public class Librarian extends User{
     public Librarian(String userID, String firstName, String lastName, String email, String passwd, File profilePic) {
-        super(userID, firstName, lastName, email, passwd, profilePic);
+        super(userID, firstName, lastName, email, passwd);
     }
 
     public boolean updateMedia(String itemIDToUpdate){

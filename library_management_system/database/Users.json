@@ -1,44 +1,30 @@
 [
   {
-    "userID":"123456789",
-    "first_name":"John",
-    "last_name":"Davis",
-    "email":"john.davis@example.com"
+    "userID": "123456789",
+    "first_name": "John",
+    "last_name": "Davis",
+    "email": "john.davis@example.com",
+    "password": "JohnPass123"
   },
   {
-    "userID":"456789123",
-    "first_name":"Emily",
-    "last_name":"Wilson",
-    "email":"emily.wilson@example.com"
+    "userID": "456789123",
+    "first_name": "Emily",
+    "last_name": "Wilson",
+    "email": "emily.wilson@example.com",
+    "password": "EmilyPass456"
   },
   {
-    "userID":"109876543",
-    "first_name":"Zoe",
-    "last_name":"Campbell",
-    "email":"zoe.campbell@example.com"
+    "userID": "109876543",
+    "first_name": "Zoe",
+    "last_name": "Campbell",
+    "email": "zoe.campbell@example.com",
+    "password": "ZoePass789"
   },
   {
-    "userID":"9876543210",
-    "first_name":"Merlin",
-    "last_name":"TheCooker",
-    "email":"merlin.cooker@gmail.com"
-  },
-  {
-    "userID":"9876543210",
-    "first_name":"Merlin",
-    "last_name":"TheCooker",
-    "email":"merlin.cooker@gmail.com"
-  },
-  {
-    "userID":"9876543210",
-    "first_name":"Merlin",
-    "last_name":"TheCooker",
-    "email":"merlin.cooker@gmail.com"
-  },
-  {
-    "userID":"9876543210",
-    "first_name":"Merlin",
-    "last_name":"TheCooker",
-    "email":"merlin.cooker@gmail.com"
+    "userID": "9876543210",
+    "first_name": "Merlin",
+    "last_name": "TheCooker",
+    "email": "merlin.cooker@gmail.com",
+    "password": "MerlinPass321"
   }
 ]

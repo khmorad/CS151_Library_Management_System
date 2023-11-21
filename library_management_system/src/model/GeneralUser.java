@@ -12,7 +12,7 @@ public class GeneralUser extends User{
 
 
     public GeneralUser(String userID, String firstName, String lastName, String email, String passwd, File profilePic) {
-        super(userID, firstName, lastName, email, passwd, profilePic);
+        super(userID, firstName, lastName, email, passwd);
         this.checkedOut = new ArrayList<>();
     }
 
