@@ -58,23 +58,23 @@ Built using Java and Java Swing, the interactive user interface enhances user an
 ### Admin Section
 
 1. Index Page
-   ![Index Page](image.png)
+   ![Index Page](/project-report/image.png)
 2. Login Page
-   ![Login Page](image-1.png)
+   ![Login Page](/project-report/image-1.png)
 3. Admin Media List
-   ![Admin Media List](image-2.png)
+   ![Admin Media List](/project-report/image-2.png)
 4. Add Media
-   ![Add Media](image-3.png)
+   ![Add Media](/project-report/image-3.png)
 5. Update Media
-   ![Update Media](image-4.png)
+   ![Update Media](/project-report/image-4.png)
 
 ### User Section
 
 1. User Register Page
-   ![User Register Page](image-5.png)
+   ![User Register Page](/project-report/image-5.png)
 2. User Login Page
-   ![User Login Page](image-6.png)
+   ![User Login Page](/project-report/image-6.png)
 3. User Media List
-   ![User Media List](image-7.png)
+   ![User Media List](/project-report/image-7.png)
 4. User Single Media View
-   ![User Single Media View](image-8.png)
+   ![User Single Media View](/project-report/image-8.png)
