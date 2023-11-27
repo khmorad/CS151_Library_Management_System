@@ -134,6 +134,21 @@ public class Book extends Media {
         Files.write(Path.of(filePath), jsonContent.getBytes());
     }
 
+    // ***********the implementitaion***********************************
+    public static void addBook(List<Book> books, String title, String author, String ISBN) {
+        for (Book book : books) {
+            if (book.ISBN.equals(ISBN)) {
+                System.out.println("Book with ISBN " + ISBN + " already exists.");
+                return;
+            }
+        }
+
+        Book newBook = new Book("", title, author, ISBN);
+        books.add(newBook);
+        System.out.println("Book added: " + newBook.title + " with ISBN " + ISBN);
+    }
+
+    // ************************************************************** */
     private static String convertListToJson(List<Book> books) {
         if (books.isEmpty()) {
             return "[]";
