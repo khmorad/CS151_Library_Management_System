@@ -9,18 +9,22 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import controller.LMSController;
 import model.Book;
+import model.GeneralUser;
+import model.Librarian;
+import model.User;
+import view.media_list.AdminMediaList;
 import view.media_list.UserMediaList;
 
-public class UserLogin extends JFrame implements ActionListener {
+public class Login extends JFrame implements ActionListener {
 
     private JTextField username = new JTextField(15); // Adjusted to accommodate a 15-character username
     private JPasswordField password = new JPasswordField(15); // Adjusted to accommodate a 15-character password
     private JButton loginButton = new JButton("Login");
     private JButton backButton = new JButton("Back to Register");
 
-    public UserLogin() {
-
+    public Login() {
         setTitle("SJSU Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(866, 650);
@@ -101,7 +105,7 @@ public class UserLogin extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    public UserLogin(String un, String pw) {
+    public Login(String un, String pw) {
         setTitle("SJSU Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(866, 650);
@@ -213,17 +217,33 @@ public class UserLogin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
+            User currentUser = LMSController.lms.login(this.username.getText(),
+                    new String(this.password.getPassword()));
+            if (currentUser == null) {
+                // Login Failed
+                LMSController.lms.printDevMsg("Login failed");
+                JOptionPane.showMessageDialog(this, "Login failed!");
+                return;
+            }
+
             dispose();
             try {
-                UserMediaList medias = new UserMediaList(
-                        Book.readFromJsonFile("library_management_system/database/books.json"));
+                LMSController.lms.setCatalog(Book.readFromJsonFile("library_management_system/database/books.json"));
+
+                if (currentUser instanceof GeneralUser) {
+                    new UserMediaList();
+
+                } else if (currentUser instanceof Librarian) {
+                    new AdminMediaList();
+                }
+
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
 
         } else if (e.getSource() == backButton) {
             dispose();
-            UserRegister register = new UserRegister();
+            new UserRegister();
         }
     }
 

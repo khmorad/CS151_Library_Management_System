@@ -21,8 +21,8 @@ public class Book extends Media {
         this.ISBN = ISBN;
     }
 
-    public static List<Book> readFromJsonFile(String filePath) throws IOException {
-        List<Book> books = new ArrayList<>();
+    public static List<Media> readFromJsonFile(String filePath) throws IOException {
+        List<Media> books = new ArrayList<>();
 
         try (Scanner scanner = new Scanner(new File(filePath))) {
             StringBuilder jsonContent = new StringBuilder();
@@ -34,6 +34,7 @@ public class Book extends Media {
             parseJson(jsonContent.toString(), books);
         }
 
+        System.out.println(books.get(0));
         return books;
     }
 
@@ -73,7 +74,7 @@ public class Book extends Media {
     }
 
     // AAAA regex is driving me nuts
-    private static void parseJson(String jsonContent, List<Book> books) {
+    private static void parseJson(String jsonContent, List<Media> books) {
         // Remove leading and trailing brackets if present
         jsonContent = jsonContent.trim();
         if (jsonContent.startsWith("[")) {
