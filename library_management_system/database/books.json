@@ -7,7 +7,14 @@
     "checked_out":true
   },
   {
-    "title":"test",
+    "title":"TESTs",
+    "author":"TESTs",
+    "ISBN":"TESTs",
+    "reserved":false,
+    "checked_out":false
+  },
+  {
+    "title":"This is not a test!",
     "author":"test",
     "ISBN":"Available",
     "reserved":false,

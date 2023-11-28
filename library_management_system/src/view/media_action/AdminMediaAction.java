@@ -5,8 +5,18 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import model.Book;
+import model.GeneralUser;
+import model.Librarian;
+import model.Media;
 import view.media_list.AdminMediaList;
+import view.media_list.UserMediaList;
+
 import javax.swing.*;
+
+import controller.LMSController;
+
+import java.util.LinkedList;
+import java.util.List;
 import java.awt.*;
 
 public class AdminMediaAction extends JFrame implements ActionListener {
@@ -135,19 +145,52 @@ public class AdminMediaAction extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == updateButton) {
-            book.title = titleField.getText();
-            book.author = authorField.getText();
-            book.ISBN = isbnField.getText();
+            try {
+                List<Media> bookList = Book.readFromJsonFile("library_management_system/database/books.json");
+                String oldISBN = book.ISBN;
+                List<Book> list = new LinkedList<>();
+                for (int i = 0; i < bookList.size(); i++) {
+                    list.add((Book) bookList.get(i));
+                }
+                book.title = titleField.getText();
+                book.author = authorField.getText();
+                book.ISBN = isbnField.getText();
+
+                Book.updateBookByISBN(list, oldISBN, book);
+                Book.writeToJsonFile(list, "library_management_system/database/books.json");
+
+                bookList = Book.readFromJsonFile("library_management_system/database/books.json");
+                dispose();
+                LMSController.lms.setCatalog(bookList);
+                AdminMediaList medias = new AdminMediaList();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
 
             System.out.println("UPDATE");
         } else if (e.getSource() == deleteButton) {
-            System.out.println("DELETE");
+            dispose();
+
+            try {
+                List<Media> bookList = Book.readFromJsonFile("library_management_system/database/books.json");
+                List<Book> list = new LinkedList<>();
+                for (int i = 0; i < bookList.size(); i++) {
+                    list.add((Book) bookList.get(i));
+                }
+                Book.deleteBookByISBN(list, isbnField.getText());
+                Book.writeToJsonFile(list, "library_management_system/database/books.json");
+
+                bookList = Book.readFromJsonFile("library_management_system/database/books.json");
+
+                LMSController.lms.setCatalog(bookList);
+                AdminMediaList medias = new AdminMediaList();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         } else if (e.getSource() == cancelButton) {
             dispose();
-            
-                AdminMediaList medias = new AdminMediaList(
-                        );
-            
+            AdminMediaList medias = new AdminMediaList();
+
         }
     }
 }

@@ -132,8 +132,8 @@ public class AdminAddMedia extends JFrame implements ActionListener {
             dispose();
             AdminMediaList adminList = new AdminMediaList();
         } else if (e.getSource() == addButton) {
-            Book newBook = new Book(titleField.getText(), authorField.getText(), isbnField.getText(),
-                    availabilityField.getText());
+            Book newBook = new Book(null, titleField.getText(), authorField.getText(),
+                    isbnField.getText());
             // logics: save it to book database
             dispose();
 
