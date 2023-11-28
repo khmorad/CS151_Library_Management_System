@@ -217,9 +217,10 @@ public class Login extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
-            User currentUser = LMSController.lms.login(this.username.getText(), new String(this.password.getPassword()));
-            if ( currentUser == null){
-                //Login Failed
+            User currentUser = LMSController.lms.login(this.username.getText(),
+                    new String(this.password.getPassword()));
+            if (currentUser == null) {
+                // Login Failed
                 LMSController.lms.printDevMsg("Login failed");
                 JOptionPane.showMessageDialog(this, "Login failed!");
                 return;
@@ -229,10 +230,10 @@ public class Login extends JFrame implements ActionListener {
             try {
                 LMSController.lms.setCatalog(Book.readFromJsonFile("library_management_system/database/books.json"));
 
-                if(currentUser instanceof GeneralUser){
+                if (currentUser instanceof GeneralUser) {
                     new UserMediaList();
 
-                }else if(currentUser instanceof Librarian){
+                } else if (currentUser instanceof Librarian) {
                     new AdminMediaList();
                 }
 

@@ -32,14 +32,12 @@ public class User {
         this.email = email;
         this.password = passwd;
 
-
         this.userID = userID;
     }
 
-    public boolean verifyPass(String password){
+    public boolean verifyPass(String password) {
         return password.equalsIgnoreCase(this.password);
     }
-
 
     public static List<User> readFromJsonFile(String filePath) throws IOException {
         List<User> users = new ArrayList<>();

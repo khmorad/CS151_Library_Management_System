@@ -132,7 +132,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    private void setField(Book book){
+    private void setField(Book book) {
         this.bookTitleLabel.setText("Book Title: " + book.title);
         this.authorLabel.setText("Author: " + book.author);
         this.isbnLabel.setText("ISBN: " + book.ISBN);
@@ -141,7 +141,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ///If user is in this view, they are not librarian.
+        /// If user is in this view, they are not librarian.
         GeneralUser genUser = (GeneralUser) LMSController.lms.getCurrentUser();
 
         if (e.getSource() == checkoutButton) {
@@ -149,7 +149,8 @@ public class UserMediaAction extends JFrame implements ActionListener {
                 LMSController.lms.printDevMsg("CHECKOUT");
             }
 
-            //Bug: When button is pressed and UI is updated, there is a werid background added to the reply.
+            // Bug: When button is pressed and UI is updated, there is a werid background
+            // added to the reply.
             if (this.currentMediaItem instanceof Book)
                 this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == returnButton) {
@@ -157,7 +158,8 @@ public class UserMediaAction extends JFrame implements ActionListener {
                 LMSController.lms.printDevMsg("RETURN");
             }
 
-            //Bug: When button is pressed and UI is updated, there is a werid background added to the reply.
+            // Bug: When button is pressed and UI is updated, there is a werid background
+            // added to the reply.
             if (this.currentMediaItem instanceof Book)
                 this.setField((Book) this.currentMediaItem);
         } else if (e.getSource() == backButton) {
