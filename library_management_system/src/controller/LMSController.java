@@ -126,6 +126,7 @@ public class LMSController {
 
         if (password.equalsIgnoreCase(tmp.getPassword())) {
             System.out.println("YEAAA!");
+            this.currentUser = tmp;
             return tmp;
         }
         return null;
