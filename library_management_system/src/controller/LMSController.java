@@ -15,7 +15,7 @@ public class LMSController {
     private List<Media> catalog;
     private List<User> users; // Simply two user arrays for single user array
 
-    private User currentUser;
+    private GeneralUser currentUser;
 
     private Boolean isDev = false;
 
@@ -126,7 +126,8 @@ public class LMSController {
 
         if (password.equalsIgnoreCase(tmp.getPassword())) {
             System.out.println("YEAAA!");
-            this.currentUser = tmp;
+            this.currentUser = new GeneralUser(tmp.getUserID(), tmp.getFirstName(), tmp.getLastName(), tmp.getEmail(),
+                    tmp.getPassword(), null);
             return tmp;
         }
         return null;
