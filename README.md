@@ -2,7 +2,7 @@
 
 ## Team Members
 
-- [Daniel H](class-diagram.pdf)
+- [Daniel H](https://github.com/dh0169)
 - [Sean Hsieh](https://github.com/ShangchenHsieh)
 - [Yar Moradpour](https://github.com/khmorad)
 
@@ -20,13 +20,13 @@
 
 ## Project Source Code & Report Contribution
 
-- Daniel: Implemented the LMSController class and integrated it with view pages.
-- Sean: Implemented all frontend pages, including button functionalities and action listeners.
+- Daniel: Implemented the LMSController class and integrated it with actionPerformed methods in the view pages.
+- Sean: Designedand implemented all frontend pages, including button functionalities and action listeners.
 - Yar: Developed the database functionality and seamlessly integrated it into LMSController.
 
 ## Project Overview
 
-The CS151 Library Management System was developed to address the local library's need for digitizing their book collection, aimed at facilitating user interaction with the library catalog and reducing the workload on librarians. This web-accessible application offers a user-friendly interface for efficient library management.
+The CS151 Library Management System was developed to address the local library's need for digitizing their book collection, aimed at facilitating user interaction with the library catalog and reducing the workload on librarians. This web-accessible application offers a user-friendly interface for efficient library management. This system also uses a "persitant" database by implementing JSON files as its database. As a result, the data persists after the application is clased.
 
 ## Diagrams
 
@@ -46,7 +46,7 @@ Built using Java and Java Swing, the interactive user interface enhances user an
 
 ### For Windows Users:
 
-1. Double-click on the `App.jar` file.
+1. Double-click on the `java -jar App.jar` file.
 
 ### For Linux Users:
 

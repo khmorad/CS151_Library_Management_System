@@ -7,13 +7,6 @@
     "checked_out":true
   },
   {
-    "title":"test",
-    "author":"test",
-    "ISBN":"test",
-    "reserved":false,
-    "checked_out":false
-  },
-  {
     "title":"The Hitchhiker's Guide to the Galaxy",
     "author":"Douglas Adams",
     "ISBN":"978-0-345-39181-3",
