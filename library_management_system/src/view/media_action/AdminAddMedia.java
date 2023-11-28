@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import model.*;
-import model.GeneralUser;
-import model.Librarian;
 import view.media_list.AdminMediaList;
 import view.media_list.UserMediaList;
 import java.util.*;
@@ -142,6 +140,11 @@ public class AdminAddMedia extends JFrame implements ActionListener {
             try {
                 List<Media> newBookList = Book.readFromJsonFile("library_management_system/database/books.json");
                 newBookList.add(1, newBook);
+                List<Book> list = new LinkedList<>();
+                for (int i = 0; i < newBookList.size(); i++) {
+                    list.add((Book) newBookList.get(i));
+                }
+                Book.writeToJsonFile(list, "library_management_system/database/books.json");
                 LMSController.lms.setCatalog(newBookList);
 
             } catch (IOException e1) {

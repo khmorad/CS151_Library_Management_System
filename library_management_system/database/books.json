@@ -1,684 +1,695 @@
 [
   {
-    "title": "The Art of Programming",
-    "author": "Donald E. Knuth",
-    "ISBN": "978-0-201-03801-1",
-    "reserved": false,
-    "checked_out": true
+    "title":"",
+    "author":"Donald E. Knuth",
+    "ISBN":"978-0-201-03801-1",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Hitchhiker's Guide to the Galaxy",
-    "author": "Douglas Adams",
-    "ISBN": "978-0-345-39181-3",
-    "reserved": true,
-    "checked_out": false
+    "title":"test",
+    "author":"test",
+    "ISBN":"Available",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Dune",
-    "author": "Frank Herbert",
-    "ISBN": "978-0-441-17271-9",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Hitchhiker's Guide to the Galaxy",
+    "author":"Douglas Adams",
+    "ISBN":"978-0-345-39181-3",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Catcher in the Rye",
-    "author": "J.D. Salinger",
-    "ISBN": "978-0-316-76948-0",
-    "reserved": true,
-    "checked_out": true
+    "title":"Dune",
+    "author":"Frank Herbert",
+    "ISBN":"978-0-441-17271-9",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "To Kill a Mockingbird",
-    "author": "Harper Lee",
-    "ISBN": "0-06-112008-1",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Catcher in the Rye",
+    "author":"J.D. Salinger",
+    "ISBN":"978-0-316-76948-0",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "1984",
-    "author": "George Orwell",
-    "ISBN": "978-0-452-28423-4",
-    "reserved": true,
-    "checked_out": false
+    "title":"To Kill a Mockingbird",
+    "author":"Harper Lee",
+    "ISBN":"0-06-112008-1",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Great Gatsby",
-    "author": "F. Scott Fitzgerald",
-    "ISBN": "978-0-7432-7356-5",
-    "reserved": false,
-    "checked_out": true
+    "title":"1984",
+    "author":"George Orwell",
+    "ISBN":"978-0-452-28423-4",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "Moby-Dick",
-    "author": "Herman Melville",
-    "ISBN": "978-0-553-21311-9",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Great Gatsby",
+    "author":"F. Scott Fitzgerald",
+    "ISBN":"978-0-7432-7356-5",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Lord of the Rings",
-    "author": "J.R.R. Tolkien",
-    "ISBN": "978-0-544-27384-1",
-    "reserved": false,
-    "checked_out": false
+    "title":"Moby-Dick",
+    "author":"Herman Melville",
+    "ISBN":"978-0-553-21311-9",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "Brave New World",
-    "author": "Aldous Huxley",
-    "ISBN": "978-0-06-085052-4",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Lord of the Rings",
+    "author":"J.R.R. Tolkien",
+    "ISBN":"978-0-544-27384-1",
+    "reserved":false,
+    "checked_out":false
   },
-{
-    "title": "The War of the Worlds",
-    "author": "H.G. Wells",
-    "ISBN": "978-0-486-26837-0",
-    "reserved": false,
-    "checked_out": false
+  {
+    "title":"Brave New World",
+    "author":"Aldous Huxley",
+    "ISBN":"978-0-06-085052-4",
+    "reserved":true,
+    "checked_out":false
+  },
+  {
+    "title":"The War of the Worlds",
+    "author":"H.G. Wells",
+    "ISBN":"978-0-486-26837-0",
+    "reserved":false,
+    "checked_out":false
+  },
+  {
+    "title":"Pride and Prejudice",
+    "author":"Jane Austen",
+    "ISBN":"978-1-85326-000-8",
+    "reserved":true,
+    "checked_out":true
+  },
+  {
+    "title":"One Hundred Years of Solitude",
+    "author":"Gabriel García Márquez",
+    "ISBN":"978-0-06-112009-2",
+    "reserved":false,
+    "checked_out":false
+  },
+  {
+    "title":"The Hobbit",
+    "author":"J.R.R. Tolkien",
+    "ISBN":"978-0-618-15129-2",
+    "reserved":true,
+    "checked_out":false
+  },
+  {
+    "title":"The Shining",
+    "author":"Stephen King",
+    "ISBN":"978-0-385-12167-5",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "Pride and Prejudice",
-    "author": "Jane Austen",
-    "ISBN": "978-1-85326-000-8",
-    "reserved": true,
-    "checked_out": true
+    "title":"Frankenstein",
+    "author":"Mary Shelley",
+    "ISBN":"978-0-553-21263-1",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "One Hundred Years of Solitude",
-    "author": "Gabriel García Márquez",
-    "ISBN": "978-0-06-112009-2",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Odyssey",
+    "author":"Homer",
+    "ISBN":"978-0-14-026886-7",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Hobbit",
-    "author": "J.R.R. Tolkien",
-    "ISBN": "978-0-618-15129-2",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Girl with the Dragon Tattoo",
+    "author":"Stieg Larsson",
+    "ISBN":"978-0-307-27592-9",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Shining",
-    "author": "Stephen King",
-    "ISBN": "978-0-385-12167-5",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Sun Also Rises",
+    "author":"Ernest Hemingway",
+    "ISBN":"978-0-7432-7355-8",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Frankenstein",
-    "author": "Mary Shelley",
-    "ISBN": "978-0-553-21263-1",
-    "reserved": true,
-    "checked_out": true
+    "title":"Jurassic Park",
+    "author":"Michael Crichton",
+    "ISBN":"978-0-345-37077-8",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Odyssey",
-    "author": "Homer",
-    "ISBN": "978-0-14-026886-7",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Alchemist",
+    "author":"Paulo Coelho",
+    "ISBN":"978-0-06-112241-6",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Girl with the Dragon Tattoo",
-    "author": "Stieg Larsson",
-    "ISBN": "978-0-307-27592-9",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Chronicles of Narnia",
+    "author":"C.S. Lewis",
+    "ISBN":"978-0-06-623850-0",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Sun Also Rises",
-    "author": "Ernest Hemingway",
-    "ISBN": "978-0-7432-7355-8",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Road",
+    "author":"Cormac McCarthy",
+    "ISBN":"978-0-307-26543-2",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Jurassic Park",
-    "author": "Michael Crichton",
-    "ISBN": "978-0-345-37077-8",
-    "reserved": true,
-    "checked_out": true
-  },{
-    "title": "The Alchemist",
-    "author": "Paulo Coelho",
-    "ISBN": "978-0-06-112241-6",
-    "reserved": false,
-    "checked_out": true
+    "title":"Harry Potter and the Sorcerer's Stone",
+    "author":"J.K. Rowling",
+    "ISBN":"978-0-545-01022-6",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Chronicles of Narnia",
-    "author": "C.S. Lewis",
-    "ISBN": "978-0-06-623850-0",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Hunger Games",
+    "author":"Suzanne Collins",
+    "ISBN":"978-0-439-02348-1",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Road",
-    "author": "Cormac McCarthy",
-    "ISBN": "978-0-307-26543-2",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Da Vinci Code",
+    "author":"Dan Brown",
+    "ISBN":"978-0-385-50420-5",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "Harry Potter and the Sorcerer's Stone",
-    "author": "J.K. Rowling",
-    "ISBN": "978-0-545-01022-6",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Grapes of Wrath",
+    "author":"John Steinbeck",
+    "ISBN":"978-0-14-303943-3",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Hunger Games",
-    "author": "Suzanne Collins",
-    "ISBN": "978-0-439-02348-1",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Girl on the Train",
+    "author":"Paula Hawkins",
+    "ISBN":"978-1-59463-366-9",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Da Vinci Code",
-    "author": "Dan Brown",
-    "ISBN": "978-0-385-50420-5",
-    "reserved": true,
-    "checked_out": true
+    "title":"Sapiens",
+    "author":"Yuval Noah Harari",
+    "ISBN":"978-0-06-231609-7",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Grapes of Wrath",
-    "author": "John Steinbeck",
-    "ISBN": "978-0-14-303943-3",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Martian",
+    "author":"Andy Weir",
+    "ISBN":"978-0-553-41802-6",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Girl on the Train",
-    "author": "Paula Hawkins",
-    "ISBN": "978-1-59463-366-9",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Kite Runner",
+    "author":"Khaled Hosseini",
+    "ISBN":"978-1-59463-193-1",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Sapiens: A Brief History of Humankind",
-    "author": "Yuval Noah Harari",
-    "ISBN": "978-0-06-231609-7",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Secret Life of Bees",
+    "author":"Sue Monk Kidd",
+    "ISBN":"978-0-14-200174-5",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Martian",
-    "author": "Andy Weir",
-    "ISBN": "978-0-553-41802-6",
-    "reserved": true,
-    "checked_out": true
-  },{
-    "title": "The Kite Runner",
-    "author": "Khaled Hosseini",
-    "ISBN": "978-1-59463-193-1",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Catcher in the Rye",
+    "author":"J.D. Salinger",
+    "ISBN":"978-0-316-76948-0",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Secret Life of Bees",
-    "author": "Sue Monk Kidd",
-    "ISBN": "978-0-14-200174-5",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Fault in Our Stars",
+    "author":"John Green",
+    "ISBN":"978-0-14-242417-9",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Catcher in the Rye",
-    "author": "J.D. Salinger",
-    "ISBN": "978-0-316-76948-0",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Color Purple",
+    "author":"Alice Walker",
+    "ISBN":"978-0-15-602835-6",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Fault in Our Stars",
-    "author": "John Green",
-    "ISBN": "978-0-14-242417-9",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Outsiders",
+    "author":"S.E. Hinton",
+    "ISBN":"978-0-14-038572-4",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Color Purple",
-    "author": "Alice Walker",
-    "ISBN": "978-0-15-602835-6",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Road Not Taken",
+    "author":"Robert Frost",
+    "ISBN":"978-1-85326-191-3",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Outsiders",
-    "author": "S.E. Hinton",
-    "ISBN": "978-0-14-038572-4",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Wind in the Willows",
+    "author":"Kenneth Grahame",
+    "ISBN":"978-0-7432-7437-1",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Road Not Taken",
-    "author": "Robert Frost",
-    "ISBN": "978-1-85326-191-3",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Glass Castle",
+    "author":"Jeannette Walls",
+    "ISBN":"978-0-7432-4753-5",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Wind in the Willows",
-    "author": "Kenneth Grahame",
-    "ISBN": "978-0-7432-7437-1",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Road to Wigan Pier",
+    "author":"George Orwell",
+    "ISBN":"978-0-15-676750-7",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Glass Castle",
-    "author": "Jeannette Walls",
-    "ISBN": "978-0-7432-4753-5",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Picture of Dorian Gray",
+    "author":"Oscar Wilde",
+    "ISBN":"978-0-486-28077-7",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Road to Wigan Pier",
-    "author": "George Orwell",
-    "ISBN": "978-0-15-676750-7",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Godfather",
+    "author":"Mario Puzo",
+    "ISBN":"978-0-451-21316-9",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Picture of Dorian Gray",
-    "author": "Oscar Wilde",
-    "ISBN": "978-0-486-28077-7",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Three Musketeers",
+    "author":"Alexandre Dumas",
+    "ISBN":"978-0-553-21241-9",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Godfather",
-    "author": "Mario Puzo",
-    "ISBN": "978-0-451-21316-9",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Road Less Traveled",
+    "author":"M. Scott Peck",
+    "ISBN":"978-0-7432-4698-9",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Three Musketeers",
-    "author": "Alexandre Dumas",
-    "ISBN": "978-0-553-21241-9",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Old Man and the Sea",
+    "author":"Ernest Hemingway",
+    "ISBN":"978-0-684-80122-3",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Road Less Traveled",
-    "author": "M. Scott Peck",
-    "ISBN": "978-0-7432-4698-9",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Iliad",
+    "author":"Homer",
+    "ISBN":"978-0-14-027536-0",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Old Man and the Sea",
-    "author": "Ernest Hemingway",
-    "ISBN": "978-0-684-80122-3",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Cider House Rules",
+    "author":"John Irving",
+    "ISBN":"978-0-06-223400-4",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Iliad",
-    "author": "Homer",
-    "ISBN": "978-0-14-027536-0",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Road to Serfdom",
+    "author":"F.A. Hayek",
+    "ISBN":"978-0-226-32055-7",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Cider House Rules",
-    "author": "John Irving",
-    "ISBN": "978-0-06-223400-4",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Count of Monte Cristo",
+    "author":"Alexandre Dumas",
+    "ISBN":"978-1-59308-203-9",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Road to Serfdom",
-    "author": "F.A. Hayek",
-    "ISBN": "978-0-226-32055-7",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Jungle Book",
+    "author":"Rudyard Kipling",
+    "ISBN":"978-0-451-52999-2",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Count of Monte Cristo",
-    "author": "Alexandre Dumas",
-    "ISBN": "978-1-59308-203-9",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Hobbit",
+    "author":"J.R.R. Tolkien",
+    "ISBN":"978-0-618-15129-2",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Jungle Book",
-    "author": "Rudyard Kipling",
-    "ISBN": "978-0-451-52999-2",
-    "reserved": true,
-    "checked_out": false
-  },{
-    "title": "The Hobbit",
-    "author": "J.R.R. Tolkien",
-    "ISBN": "978-0-618-15129-2",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Metamorphosis",
+    "author":"Franz Kafka",
+    "ISBN":"978-0-553-21135-1",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Metamorphosis",
-    "author": "Franz Kafka",
-    "ISBN": "978-0-553-21135-1",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Brothers Karamazov",
+    "author":"Fyodor Dostoevsky",
+    "ISBN":"978-0-679-72444-2",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Brothers Karamazov",
-    "author": "Fyodor Dostoevsky",
-    "ISBN": "978-0-679-72444-2",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Odyssey",
+    "author":"Homer",
+    "ISBN":"978-0-14-026886-7",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Odyssey",
-    "author": "Homer",
-    "ISBN": "978-0-14-026886-7",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Silmarillion",
+    "author":"J.R.R. Tolkien",
+    "ISBN":"978-0-345-30063-7",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Silmarillion",
-    "author": "J.R.R. Tolkien",
-    "ISBN": "978-0-345-30063-7",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Trial",
+    "author":"Franz Kafka",
+    "ISBN":"978-0-8052-1022-8",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Trial",
-    "author": "Franz Kafka",
-    "ISBN": "978-0-8052-1022-8",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Shining",
+    "author":"Stephen King",
+    "ISBN":"978-0-385-12167-5",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Shining",
-    "author": "Stephen King",
-    "ISBN": "978-0-385-12167-5",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Scarlet Letter",
+    "author":"Nathaniel Hawthorne",
+    "ISBN":"978-0-553-21270-9",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Scarlet Letter",
-    "author": "Nathaniel Hawthorne",
-    "ISBN": "978-0-553-21270-9",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Stranger",
+    "author":"Albert Camus",
+    "ISBN":"978-0-679-72020-8",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Stranger",
-    "author": "Albert Camus",
-    "ISBN": "978-0-679-72020-8",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Girl with the Dragon Tattoo",
+    "author":"Stieg Larsson",
+    "ISBN":"978-0-307-27592-9",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Girl with the Dragon Tattoo",
-    "author": "Stieg Larsson",
-    "ISBN": "978-0-307-27592-9",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Road",
+    "author":"Cormac McCarthy",
+    "ISBN":"978-0-307-26543-2",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Road",
-    "author": "Cormac McCarthy",
-    "ISBN": "978-0-307-26543-2",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Lord of the Rings",
+    "author":"J.R.R. Tolkien",
+    "ISBN":"978-0-544-27384-1",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Lord of the Rings",
-    "author": "J.R.R. Tolkien",
-    "ISBN": "978-0-544-27384-1",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Count of Monte Cristo",
+    "author":"Alexandre Dumas",
+    "ISBN":"978-1-59308-203-9",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Count of Monte Cristo",
-    "author": "Alexandre Dumas",
-    "ISBN": "978-1-59308-203-9",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Great Gatsby",
+    "author":"F. Scott Fitzgerald",
+    "ISBN":"978-0-7432-7356-5",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Great Gatsby",
-    "author": "F. Scott Fitzgerald",
-    "ISBN": "978-0-7432-7356-5",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Art of War",
+    "author":"Sun Tzu",
+    "ISBN":"978-0-19-501476-1",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Art of War",
-    "author": "Sun Tzu",
-    "ISBN": "978-0-19-501476-1",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Fountainhead",
+    "author":"Ayn Rand",
+    "ISBN":"978-0-452-28423-4",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Fountainhead",
-    "author": "Ayn Rand",
-    "ISBN": "978-0-452-28423-4",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Road to Serfdom",
+    "author":"F.A. Hayek",
+    "ISBN":"978-0-226-32055-7",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Road to Serfdom",
-    "author": "F.A. Hayek",
-    "ISBN": "978-0-226-32055-7",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Book Thief",
+    "author":"Markus Zusak",
+    "ISBN":"978-0-375-83100-3",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Book Thief",
-    "author": "Markus Zusak",
-    "ISBN": "978-0-375-83100-3",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Catcher in the Rye",
+    "author":"J.D. Salinger",
+    "ISBN":"978-0-316-76948-0",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Catcher in the Rye",
-    "author": "J.D. Salinger",
-    "ISBN": "978-0-316-76948-0",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Grapes of Wrath",
+    "author":"John Steinbeck",
+    "ISBN":"978-0-14-303943-3",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Grapes of Wrath",
-    "author": "John Steinbeck",
-    "ISBN": "978-0-14-303943-3",
-    "reserved": true,
-    "checked_out": false
-  },{
-    "title": "Crime and Punishment",
-    "author": "Fyodor Dostoevsky",
-    "ISBN": "978-0-553-21257-0",
-    "reserved": false,
-    "checked_out": false
+    "title":"Crime and Punishment",
+    "author":"Fyodor Dostoevsky",
+    "ISBN":"978-0-553-21257-0",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Wuthering Heights",
-    "author": "Emily Brontë",
-    "ISBN": "978-0-451-52706-6",
-    "reserved": true,
-    "checked_out": true
+    "title":"Wuthering Heights",
+    "author":"Emily Brontë",
+    "ISBN":"978-0-451-52706-6",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "One Hundred Years of Solitude",
-    "author": "Gabriel García Márquez",
-    "ISBN": "978-0-06-112009-2",
-    "reserved": false,
-    "checked_out": true
+    "title":"One Hundred Years of Solitude",
+    "author":"Gabriel García Márquez",
+    "ISBN":"978-0-06-112009-2",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "Anna Karenina",
-    "author": "Leo Tolstoy",
-    "ISBN": "978-0-14-303500-8",
-    "reserved": true,
-    "checked_out": false
+    "title":"Anna Karenina",
+    "author":"Leo Tolstoy",
+    "ISBN":"978-0-14-303500-8",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "Great Expectations",
-    "author": "Charles Dickens",
-    "ISBN": "978-0-14-143956-3",
-    "reserved": false,
-    "checked_out": false
+    "title":"Great Expectations",
+    "author":"Charles Dickens",
+    "ISBN":"978-0-14-143956-3",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Picture of Dorian Gray",
-    "author": "Oscar Wilde",
-    "ISBN": "978-0-486-37077-6",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Picture of Dorian Gray",
+    "author":"Oscar Wilde",
+    "ISBN":"978-0-486-37077-6",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "Moby-Dick",
-    "author": "Herman Melville",
-    "ISBN": "978-0-553-21311-9",
-    "reserved": false,
-    "checked_out": true
+    "title":"Moby-Dick",
+    "author":"Herman Melville",
+    "ISBN":"978-0-553-21311-9",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "Jane Eyre",
-    "author": "Charlotte Brontë",
-    "ISBN": "978-0-14-144114-6",
-    "reserved": true,
-    "checked_out": false
+    "title":"Jane Eyre",
+    "author":"Charlotte Brontë",
+    "ISBN":"978-0-14-144114-6",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "Les Misérables",
-    "author": "Victor Hugo",
-    "ISBN": "978-0-19-953679-5",
-    "reserved": false,
-    "checked_out": false
+    "title":"Les Misérables",
+    "author":"Victor Hugo",
+    "ISBN":"978-0-19-953679-5",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Frankenstein",
-    "author": "Mary Shelley",
-    "ISBN": "978-0-486-28273-3",
-    "reserved": true,
-    "checked_out": false
+    "title":"Frankenstein",
+    "author":"Mary Shelley",
+    "ISBN":"978-0-486-28273-3",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "Pride and Prejudice",
-    "author": "Jane Austen",
-    "ISBN": "978-1-85326-000-8",
-    "reserved": false,
-    "checked_out": true
+    "title":"Pride and Prejudice",
+    "author":"Jane Austen",
+    "ISBN":"978-1-85326-000-8",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "Dracula",
-    "author": "Bram Stoker",
-    "ISBN": "978-0-486-55383-6",
-    "reserved": true,
-    "checked_out": false
+    "title":"Dracula",
+    "author":"Bram Stoker",
+    "ISBN":"978-0-486-55383-6",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Sound and the Fury",
-    "author": "William Faulkner",
-    "ISBN": "978-0-679-73289-9",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Sound and the Fury",
+    "author":"William Faulkner",
+    "ISBN":"978-0-679-73289-9",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Canterbury Tales",
-    "author": "Geoffrey Chaucer",
-    "ISBN": "978-0-14-042234-4",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Canterbury Tales",
+    "author":"Geoffrey Chaucer",
+    "ISBN":"978-0-14-042234-4",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Hunchback of Notre-Dame",
-    "author": "Victor Hugo",
-    "ISBN": "978-0-14-044353-0",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Hunchback of Notre-Dame",
+    "author":"Victor Hugo",
+    "ISBN":"978-0-14-044353-0",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "War and Peace",
-    "author": "Leo Tolstoy",
-    "ISBN": "978-0-14-044793-4",
-    "reserved": true,
-    "checked_out": false
+    "title":"War and Peace",
+    "author":"Leo Tolstoy",
+    "ISBN":"978-0-14-044793-4",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Divine Comedy",
-    "author": "Dante Alighieri",
-    "ISBN": "978-0-14-119749-4",
-    "reserved": false,
-    "checked_out": true
+    "title":"The Divine Comedy",
+    "author":"Dante Alighieri",
+    "ISBN":"978-0-14-119749-4",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "The Trial",
-    "author": "Franz Kafka",
-    "ISBN": "978-0-8047-0196-8",
-    "reserved": true,
-    "checked_out": false
+    "title":"The Trial",
+    "author":"Franz Kafka",
+    "ISBN":"978-0-8047-0196-8",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "The Portrait of a Lady",
-    "author": "Henry James",
-    "ISBN": "978-0-19-283476-1",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Portrait of a Lady",
+    "author":"Henry James",
+    "ISBN":"978-0-19-283476-1",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Middlemarch",
-    "author": "George Eliot",
-    "ISBN": "978-0-19-953675-7",
-    "reserved": true,
-    "checked_out": true
+    "title":"Middlemarch",
+    "author":"George Eliot",
+    "ISBN":"978-0-19-953675-7",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "The Stranger",
-    "author": "Albert Camus",
-    "ISBN": "978-0-679-72020-8",
-    "reserved": false,
-    "checked_out": false
+    "title":"The Stranger",
+    "author":"Albert Camus",
+    "ISBN":"978-0-679-72020-8",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Idiot",
-    "author": "Fyodor Dostoevsky",
-    "ISBN": "978-0-553-21260-0",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Idiot",
+    "author":"Fyodor Dostoevsky",
+    "ISBN":"978-0-553-21260-0",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "Sense and Sensibility",
-    "author": "Jane Austen",
-    "ISBN": "978-0-14-143966-2",
-    "reserved": false,
-    "checked_out": true
+    "title":"Sense and Sensibility",
+    "author":"Jane Austen",
+    "ISBN":"978-0-14-143966-2",
+    "reserved":false,
+    "checked_out":true
   },
   {
-    "title": "Oliver Twist",
-    "author": "Charles Dickens",
-    "ISBN": "978-0-14-143974-7",
-    "reserved": true,
-    "checked_out": false
+    "title":"Oliver Twist",
+    "author":"Charles Dickens",
+    "ISBN":"978-0-14-143974-7",
+    "reserved":true,
+    "checked_out":false
   },
   {
-    "title": "Mansfield Park",
-    "author": "Jane Austen",
-    "ISBN": "978-0-14-143980-8",
-    "reserved": false,
-    "checked_out": false
+    "title":"Mansfield Park",
+    "author":"Jane Austen",
+    "ISBN":"978-0-14-143980-8",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "The Prince",
-    "author": "Niccolò Machiavelli",
-    "ISBN": "978-0-553-21388-1",
-    "reserved": true,
-    "checked_out": true
+    "title":"The Prince",
+    "author":"Niccolò Machiavelli",
+    "ISBN":"978-0-553-21388-1",
+    "reserved":true,
+    "checked_out":true
   },
   {
-    "title": "Heart of Darkness",
-    "author": "Joseph Conrad",
-    "ISBN": "978-0-486-29505-9",
-    "reserved": false,
-    "checked_out": false
+    "title":"Heart of Darkness",
+    "author":"Joseph Conrad",
+    "ISBN":"978-0-486-29505-9",
+    "reserved":false,
+    "checked_out":false
   },
   {
-    "title": "Emma",
-    "author": "Jane Austen",
-    "ISBN": "978-0-14-143958-7",
-    "reserved": true,
-    "checked_out": false
+    "title":"Emma",
+    "author":"Jane Austen",
+    "ISBN":"978-0-14-143958-7",
+    "reserved":true,
+    "checked_out":false
   }
 ]
