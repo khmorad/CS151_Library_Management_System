@@ -52,7 +52,6 @@ public class AdminMediaList extends JFrame implements ActionListener {
                 bookButton.setFocusPainted(false);
                 bookButton.setFont(new Font("Arial", Font.BOLD, 16)); // Font style
 
-                
                 // Add shadow effect
                 bookButton.setBorder(BorderFactory.createCompoundBorder(
                         BorderFactory.createLineBorder(new Color(200, 120, 70), 1),
@@ -81,15 +80,15 @@ public class AdminMediaList extends JFrame implements ActionListener {
         backButton.addActionListener(this);
 
         addMediaButton.setPreferredSize(new Dimension(150, 40));
-                addMediaButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                addMediaButton.setBackground(new Color(135, 206, 235));
-                addMediaButton.setForeground(Color.BLACK);
-                addMediaButton.setFocusPainted(false);
-                addMediaButton.addActionListener(this);
-                addMediaButton.setFont(new Font("Arial", Font.BOLD, 16));
-                addMediaButton.setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(new Color(200, 120, 70), 1),
-                        BorderFactory.createEmptyBorder(4, 14, 4, 14)));
+        addMediaButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        addMediaButton.setBackground(new Color(135, 206, 235));
+        addMediaButton.setForeground(Color.BLACK);
+        addMediaButton.setFocusPainted(false);
+        addMediaButton.addActionListener(this);
+        addMediaButton.setFont(new Font("Arial", Font.BOLD, 16));
+        addMediaButton.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(200, 120, 70), 1),
+                BorderFactory.createEmptyBorder(4, 14, 4, 14)));
 
         addMediaButton.addActionListener(this);
 

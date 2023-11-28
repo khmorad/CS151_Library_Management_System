@@ -35,7 +35,7 @@ public class UserMediaList extends JFrame implements ActionListener {
         hsb[1] *= 0.5f;
         buttonColor = new Color(Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]));
         for (int i = 1; i < LMSController.lms.getCatalog().size(); i++) {
-            if(LMSController.lms.getCatalog().get(i) instanceof Book){
+            if (LMSController.lms.getCatalog().get(i) instanceof Book) {
                 Book tmp = (Book) LMSController.lms.getCatalog().get(i);
                 JButton bookButton = new JButton(tmp.title);
                 bookButton.addActionListener(this);
