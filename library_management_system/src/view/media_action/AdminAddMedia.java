@@ -2,10 +2,20 @@ package view.media_action;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.Book;
+import java.io.IOException;
+
+import model.*;
+import model.GeneralUser;
+import model.Librarian;
 import view.media_list.AdminMediaList;
+import view.media_list.UserMediaList;
+import java.util.*;
+import java.util.List;
 
 import javax.swing.*;
+
+import controller.LMSController;
+
 import java.awt.*;
 
 public class AdminAddMedia extends JFrame implements ActionListener {
@@ -17,9 +27,7 @@ public class AdminAddMedia extends JFrame implements ActionListener {
     JButton addButton = new JButton("Add");
     JButton cancelButton = new JButton("Cancel");
 
-
     public AdminAddMedia() {
-        
 
         setTitle("Book Information");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +51,6 @@ public class AdminAddMedia extends JFrame implements ActionListener {
         JLabel authorLabel = new JLabel("Author:");
         JLabel isbnLabel = new JLabel("ISBN:");
         JLabel availabilityLabel = new JLabel("Availability:");
-        
 
         bookTitleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         authorLabel.setFont(new Font("Arial", Font.BOLD, 16));
@@ -72,8 +79,6 @@ public class AdminAddMedia extends JFrame implements ActionListener {
         addButton.setBackground(new Color(0, 150, 0));
 
         cancelButton.setBackground(Color.lightGray);
-
-        
 
         JPanel bookPanel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -128,14 +133,22 @@ public class AdminAddMedia extends JFrame implements ActionListener {
         if (e.getSource() == cancelButton) {
             dispose();
             AdminMediaList adminList = new AdminMediaList();
-        } 
-        else if (e.getSource() == addButton) {
-            Book newBook = new Book(titleField.getText(), authorField.getText(), isbnField.getText(), availabilityField.getText());
+        } else if (e.getSource() == addButton) {
+            Book newBook = new Book(titleField.getText(), authorField.getText(), isbnField.getText(),
+                    availabilityField.getText());
             // logics: save it to book database
             dispose();
-            // TO-BE Implement Add media Logic  
 
-            //back to admin media list 
+            try {
+                List<Media> newBookList = Book.readFromJsonFile("library_management_system/database/books.json");
+                newBookList.add(1, newBook);
+                LMSController.lms.setCatalog(newBookList);
+
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            // back to admin media list
             AdminMediaList medias = new AdminMediaList();
         }
     }

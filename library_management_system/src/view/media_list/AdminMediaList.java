@@ -84,7 +84,7 @@ public class AdminMediaList extends JFrame implements ActionListener {
         addMediaButton.setBackground(new Color(135, 206, 235));
         addMediaButton.setForeground(Color.BLACK);
         addMediaButton.setFocusPainted(false);
-        addMediaButton.addActionListener(this);
+
         addMediaButton.setFont(new Font("Arial", Font.BOLD, 16));
         addMediaButton.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(200, 120, 70), 1),
