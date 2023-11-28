@@ -3,6 +3,8 @@ package controller;
 import model.*;
 
 import javax.swing.text.View;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class LMSController {
     private Boolean isDev = false;
 
     public LMSController(Boolean isDev) {
+
         this.catalog = new ArrayList<>();
         this.users = new ArrayList<>();
         this.isDev = isDev; // enables Development features for easy debugging
@@ -72,7 +75,16 @@ public class LMSController {
         if (isAdmin) {
             this.users.add(new Librarian(userID, firstName, lastName, email, passwd, null));
         } else {
-            this.users.add(new GeneralUser(userID, firstName, lastName, email, passwd, null));
+            // this.users.add(new GeneralUser(userID, firstName, lastName, email, passwd,
+            // null));
+            try {
+                users = User.readFromJsonFile("library_management_system/database/Users.json");
+                users.add(new GeneralUser(userID, firstName, lastName, email, passwd, null));
+                User.writeToJsonFile(users, "library_management_system/database/Users.json");
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
 
         if (this.isDev) {
@@ -88,7 +100,13 @@ public class LMSController {
     }
 
     public boolean doesUserExist(String userID) {
-        for (User u : this.getUsers()) {
+        try {
+            users = User.readFromJsonFile("library_management_system/database/Users.json");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        for (User u : users) {
             // User exists
             if (u.userID.equalsIgnoreCase(userID)) {
                 this.printDevMsg("User exists!");
@@ -105,12 +123,10 @@ public class LMSController {
         }
 
         User tmp = this.getUserById(userId);
-        if (tmp != null) {
-            if (tmp.verifyPass(password)) {
-                this.printDevMsg("Login Succ");
-                this.currentUser = tmp;
-                return tmp;
-            }
+
+        if (password.equalsIgnoreCase(tmp.getPassword())) {
+            System.out.println("YEAAA!");
+            return tmp;
         }
         return null;
     }
@@ -124,7 +140,13 @@ public class LMSController {
 
     /* Helper Functions */
     public User getUserById(String userID) {
-        for (User u : this.getUsers()) {
+        try {
+            users = User.readFromJsonFile("library_management_system/database/Users.json");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        for (User u : users) {
             if (u.userID.equalsIgnoreCase(userID))
                 return u;
         }

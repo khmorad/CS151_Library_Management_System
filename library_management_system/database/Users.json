@@ -1,30 +1,72 @@
 [
   {
-    "userID": "123456789",
-    "first_name": "John",
-    "last_name": "Davis",
-    "email": "john.davis@example.com",
-    "password": "JohnPass123"
+    "userID":"admin",
+    "first_name":"",
+    "last_name":"",
+    "email":"",
+    "password":"admin"
   },
   {
-    "userID": "456789123",
-    "first_name": "Emily",
-    "last_name": "Wilson",
-    "email": "emily.wilson@example.com",
-    "password": "EmilyPass456"
+    "userID":"123456789",
+    "first_name":"John",
+    "last_name":"Davis",
+    "email":"john.davis@example.com",
+    "password":"JohnPass123"
   },
   {
-    "userID": "109876543",
-    "first_name": "Zoe",
-    "last_name": "Campbell",
-    "email": "zoe.campbell@example.com",
-    "password": "ZoePass789"
+    "userID":"456789123",
+    "first_name":"Emily",
+    "last_name":"Wilson",
+    "email":"emily.wilson@example.com",
+    "password":"EmilyPass456"
   },
   {
-    "userID": "9876543210",
-    "first_name": "Merlin",
-    "last_name": "TheCooker",
-    "email": "merlin.cooker@gmail.com",
-    "password": "MerlinPass321"
+    "userID":"109876543",
+    "first_name":"Zoe",
+    "last_name":"Campbell",
+    "email":"zoe.campbell@example.com",
+    "password":"ZoePass789"
+  },
+  {
+    "userID":"9876543210",
+    "first_name":"Merlin",
+    "last_name":"TheCooker",
+    "email":"merlin.cooker@gmail.com",
+    "password":"MerlinPass321"
+  },
+  {
+    "userID":"123123123",
+    "first_name":"sean",
+    "last_name":"hsieh",
+    "email":"sean",
+    "password":"pw123"
+  },
+  {
+    "userID":"111111111",
+    "first_name":"yar",
+    "last_name":"h",
+    "email":"yar",
+    "password":"pw123"
+  },
+  {
+    "userID":"user",
+    "first_name":"user",
+    "last_name":"user",
+    "email":"user",
+    "password":"user"
+  },
+  {
+    "userID":"demo",
+    "first_name":"demo",
+    "last_name":"demo",
+    "email":"demo",
+    "password":"demo"
+  },
+  {
+    "userID":"read",
+    "first_name":"read",
+    "last_name":"read",
+    "email":"read",
+    "password":"123"
   }
 ]
