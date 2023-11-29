@@ -188,6 +188,24 @@ public class LMSController {
         return null;
     }
 
+    public int save(){
+        ArrayList<Book> tmpL = new ArrayList<>();
+        for (Media item: LMSController.lms.getCatalog()) {
+            if(item instanceof Book){
+                tmpL.add((Book)item);
+            }
+        }
+        try{
+            int size = tmpL.size();
+            Book.writeToJsonFile(tmpL, "library_management_system/database/books.json");
+            return size;
+        }catch (IOException exc){
+            System.out.println("Failed to write json to file.");
+            exc.printStackTrace();
+        }
+        return 0;
+    }
+
     /* end setters and getters */
 
 }

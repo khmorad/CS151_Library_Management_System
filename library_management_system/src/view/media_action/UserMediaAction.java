@@ -11,6 +11,7 @@ import model.Media;
 import view.media_list.UserMediaList;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class UserMediaAction extends JFrame implements ActionListener {
     JButton checkoutButton = new JButton("Checkout");
@@ -35,7 +36,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
         this.bookTitleLabel = new JLabel("Book Title: " + book.title);
         this.authorLabel = new JLabel("Author: " + book.author);
         this.isbnLabel = new JLabel("ISBN: " + book.ISBN);
-        this.availabilityLabel = new JLabel("Available: " + (book.isCheckedOut() ? "No" : "Yes"));
+        this.availabilityLabel = new JLabel();
 
         JPanel contentPane = new JPanel() {
             @Override
@@ -53,7 +54,8 @@ public class UserMediaAction extends JFrame implements ActionListener {
             availabilityLabel = new JLabel("Availability: Not Available");
             availabilityLabel.setForeground(Color.RED);
         } else {
-            availabilityLabel = new JLabel("Availability: Available");
+            this.availabilityLabel.setText("Availability: Available");
+            this.availabilityLabel.setForeground(Color.BLUE);
 
         }
 
@@ -136,7 +138,16 @@ public class UserMediaAction extends JFrame implements ActionListener {
         this.bookTitleLabel.setText("Book Title: " + book.title);
         this.authorLabel.setText("Author: " + book.author);
         this.isbnLabel.setText("ISBN: " + book.ISBN);
-        this.availabilityLabel.setText("Available: " + (book.isCheckedOut() ? "No" : "Yes"));
+        if (book.isCheckedOut()) {
+            this.availabilityLabel.setText("Availability: Not Available" );
+            availabilityLabel.setForeground(Color.RED);
+        } else {
+            this.availabilityLabel.setText("Availability: Available");
+            this.availabilityLabel.setForeground(Color.BLUE);
+        }
+
+        this.availabilityLabel.setFont(new Font("Arial", Font.BOLD, 16));
+
     }
 
     @Override
@@ -147,6 +158,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
         if (e.getSource() == checkoutButton) {
             if (genUser.checkOut(this.currentMediaItem)) {
                 LMSController.lms.printDevMsg("CHECKOUT");
+                JOptionPane.showMessageDialog(this, "Book checked out!");
             }
 
             // Bug: When button is pressed and UI is updated, there is a werid background
@@ -156,6 +168,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
         } else if (e.getSource() == returnButton) {
             if (genUser.returnMedia(this.currentMediaItem)) {
                 LMSController.lms.printDevMsg("RETURN");
+                JOptionPane.showMessageDialog(this, "Book returned!");
             }
 
             // Bug: When button is pressed and UI is updated, there is a werid background
@@ -166,5 +179,7 @@ public class UserMediaAction extends JFrame implements ActionListener {
             dispose();
             new UserMediaList();
         }
+        LMSController.lms.save();
+        SwingUtilities.updateComponentTreeUI(this);
     }
 }

@@ -7,18 +7,25 @@
     "checked_out":true
   },
   {
+    "title":"Test",
+    "author":"Test",
+    "ISBN":"Test",
+    "reserved":false,
+    "checked_out":true
+  },
+  {
     "title":"The Hitchhiker's Guide to the Galaxy",
     "author":"Douglas Adams",
     "ISBN":"978-0-345-39181-3",
     "reserved":true,
-    "checked_out":false
+    "checked_out":true
   },
   {
     "title":"Dune",
     "author":"Frank Herbert",
     "ISBN":"978-0-441-17271-9",
     "reserved":false,
-    "checked_out":false
+    "checked_out":true
   },
   {
     "title":"The Catcher in the Rye",
